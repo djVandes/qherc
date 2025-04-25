@@ -7,18 +7,22 @@ h2 {
     font-family: 'Oxygen', bold;
     font-size: 3em; /* Enlarge the h1 text size */
 }
+
+html {
+    scroll-behavior: smooth;
+}
+
 :root{
     --fw-reg: 600;
     --fw-bold: 900;
     
     /*COLOURS*/
     --navy: #0a101b;         
-    --plum: #4C3B71;      
-    --turquoise: #115268;
+    --plum: #1d1f52;      
+    --acc: #67177f;
     --cream: #ead7ce;      
 
     --bs: 0 4px 6px rgba(0,0,0,0.1);
-    
 }
 
 body{
@@ -26,6 +30,29 @@ body{
     color: var(--cream); /* Ensure text is readable on black background */
     margin: 0;
     padding: 0;
+
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* starts 50px below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* drama */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 h2, p {
@@ -35,25 +62,25 @@ h2, p {
 /* navbar */
 .navbar {
     position: fixed;
-    top: 0; /* Pin to top */
-    left: 0; /* Align left */
+    top: 0;
+    left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
     z-index: 1000;
     padding: 0.5em 1em;
-    box-shadow: var(--bs);
+    text-transform: uppercase;
 }
 
 /* Header menu styling */
-.header-menu ul {
+.header-menu {
     list-style: none;
     padding-top: 0.5em;
     display: flex;
     justify-content: center;
 }
-.header-menu a {
 
-    font-size: 1.5em; /* Enlarge the h1 text size */
+.header-menu a {
+    font-size: 1.25em; /* Enlarge the h1 text size */
     margin: 0 15px;
     color: var(--cream);
     text-decoration: none;
@@ -64,81 +91,132 @@ h2, p {
 
 .header-menu a:hover {
     text-decoration: underline;
+    color: rgb(245, 206, 98);
+
 }
 
 /* title */
-.title-section {
-    position: relative;
-    background:  no-repeat center center; /* Dark overlay */
-    background-size: cover;
-    padding: 150px 20px 100px; /* Increase top padding to account for fixed header */
-    text-align: center;
-}
 
-.title-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-/* Flex container for title text and image */
-.title-container {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1200px;
+.title {
+    background: linear-gradient(to bottom, rgb(0, 0, 0), var(--plum));
+    padding-bottom: 2em;
     margin: 0 auto;
-}
-/* Title text styling */
-.title-text {
-    flex: 0 0 50%;
-    text-align: left;
-    padding: 10px;
+
 }
 
-/* Title image styling */
-.title-image {
-    flex: 0 0 50%;
-    text-align: right;
-    padding: 10px;
-}
+@media (min-width: 200px){
+    .title {
+        padding-top: 10em;
+        display: grid;
+        grid-template-columns: 40% 60%; /* Two equal columns */
+        grid-column-gap: 2em;
+        grid-template-areas:
+            "title img";
+        margin: 0 auto;
+        align-items: center; /* Center the experiences horizontally */
+    }
 
-.title-image img {
-    max-width: 400px;
-    height: auto;
-}
+    .title__img {
+        grid-area: img;
+        border-radius: 10px; /* Rounded corners */
 
+        z-index: 2;
+        justify-content: center;
+        width: 85%; /* Make the image responsive */
+        height: auto;
+        align-self: start; /* Ensure the image aligns to the top */
+
+    }
+    .title__text {
+        grid-area: title;
+        padding-left: 5em;
+    }
+    .title__text h1 {
+        font-size: 5em; /* Enlarge the h1 text size */
+        margin: 0;
+    }
+}
 
 
 /* mission */
 .mission {
-    padding: 1em 1em 1em 1em; /* 1em padding left/right and 20em padding bottom */
+    background: var(--plum);
+    background: linear-gradient(to bottom, var(--plum), var(--navy));
+
+    padding: 1em 1em 3em 1em; /* 1em padding left/right and 20em padding bottom */
     text-align: center;
+}
+
+.mission p {
+    padding-bottom: 2em;
 }
 
 .button {
     background-color: var(--plum); /* Button color */
     color: var(--cream); /* Text color */
     padding: 0.5em 1em; /* Padding for the button */
-    border: none; /* Remove default border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 1.2em; /* Font size for the button text */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 1.5em; /* Font size for the button text */
+    text-transform: uppercase;
+    font-family: 'Oxygen', bold;
+    transition: transform 300ms ease-in-out;
+    display: inline-block; /* Ensure transforms work properly */
+    text-decoration: none;
 }
+
+.button:hover {
+    transform: scale(1.15);
+    background-color: var(--acc); /* Button color */
+
+}
+
+
+/* sponsors */
+.sponsors-logos h1 {
+    padding-top: 1em;
+    text-align: center;
+    font-size: 3em; /* Enlarge the h1 text size */
+}
+
+.sponsors-logos {
+    overflow: hidden;
+    width: 100%;
+    background: var(--navy); /* or any background color you want */
+    padding: 1em 0;
+}
+
+.logo-slider {
+    display: flex;
+    align-items: center;
+    /* Duplicate set of logos ensures a continuous loop */
+    animation: slide 10s linear infinite;
+}
+
+.logo-slider img {
+    height: 80px; /* Adjust size as needed */
+    margin: 0 2em;
+}
+
+/* Adjust the keyframe percentage based on the width of your content */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
 
 
 /* members */
 .members {
+    padding-top: 7em;
     background: linear-gradient(to bottom, var(--navy) 0%, rgba(10,16,27,0) 100%), url('../img/hubble.jpg');
 }
 
-.members h2 {
+.members h1 {
+    font-size: 3em; /* Enlarge the h1 text size */
     text-align: center;
 }
 
@@ -147,15 +225,14 @@ h2, p {
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid layout */
     max-width: calc(100% - 20px); /* Adjust max-width to account for padding */
     max-height: calc(100% - 20px); /* Adjust max-height to account for padding */
-    padding: 5em 1em 1em; /* 1em padding left/right and 20em padding bottom */
 }
 
 /* Container for each print item */
 .member__img-container {
     margin: auto;           /* Center the container with spacing */
+    padding-bottom: 1.5em;;
     text-align: center;
     transition: transform 500ms ease-in-out;
-
 }
 .member__img-container:hover {
     transform: scale(1.15);
@@ -177,18 +254,22 @@ h2, p {
     line-height: 1.4;
 }
 
-/* Individual text elements */
-.member__title {
-    font-weight: bold;
-    margin-bottom: 0.2em;
-}
 
-.member__name,
-.member__role,
+.member__name{
+    font-size: 2em;
+    display: block;
+    margin-bottom: 0.2em;
+    font-family: 'Oxygen', bold;
+}
+.member__role{
+    display: block;
+    margin-bottom: 0.2em;
+    font-family: 'Oxygen', bold;
+}
 .member__description {
     display: block;
-    color: var(--clltr-);
     margin-bottom: 0.2em;
+    font-family: 'Oxygen', bold;
 }
 
 /* achievements  */

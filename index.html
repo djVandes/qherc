@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QHERC</title>
-    <link rel="shortcut icon" type="image/png" href="img/astronaut_icon.png"/>
+    <link rel="shortcut icon" type="image/png" href="img/moon.png"/>
 
     <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -16,27 +16,27 @@
 
 <!-- Title -->
 <body>
-    <header class="navbar">
-        <nav class="header-menu" position="fixed">
-            <ul>
+    <header>
+        <nav class="navbar">
+            <ul class="header-menu">
+                <li><a href="#home">Home</a></li>
                 <li><a href="#mission">Mission</a></li>
-                <li><a href="#members">Members</a></li>
+                <li><a href="#sponsors">Sponsors</a></li>
+                <li><a href="#team">Team</a></li>
                 <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#discord">Discord</a></li>
+                <li><a href="https://discord.gg/NtXCsjFm">Discord</a></li>
             </ul>
         </nav>
     </header>
-    <section class="title-section">
-        <div class="header-container">
-            <div class="title-text">
-                <h1>Q-HERC</h1>
-                <h2>Human Exploration Rover Challenge</h2>
-                <p>NASA's first and only Canadian team #tariffthis</p>
-            </div>
-            <div class="title-image">
-                <img src="img/herc.jpg" alt="HERC">
-            </div>
+
+    <section class="title" id = "home">
+        <div class="title__text">
+            <h1>Q-HERC</h1>
+            <h2>Human Exploration Rover Challenge</h2>
+            <p>NASA's first and only Canadian team</p>
         </div>
+        <img src="img/herc.JPG" alt="QHERC" class="title__img">
+
     </section>
 
     <!-- Mission -->
@@ -47,12 +47,30 @@
         <p>To design and build a rover that can traverse the lunar surface and complete a series of tasks, all while being as efficient and effective as possible.</p>
 
 
-        <a href = "https://discord.gg/NtXCsjFm" class="button" id="discord-button">Join our Discord</a>
+        <a href = "https://discord.gg/NtXCsjFm" class="button" id="discord">Join our Discord</a>
+    </section>
+
+
+    <!-- sponsors -->
+    <section class="sponsors-logos" id="sponsors">
+        <h1>Our Sponsors</h1>
+        <div class="logo-slider">
+            <img src="img/logo/hangingstone.png" alt="Sponsor 1">
+            <img src="img/logo/ipg.png" alt="Sponsor 2">
+            <img src="img/logo/kinectrics.png" alt="Sponsor 3">
+            <img src="img/logo/lightweld.webp" alt="Sponsor 4">
+            <img src="img/logo/mda.png" alt="Sponsor 4">
+            <img src="img/logo/hangingstone.png" alt="Sponsor 1">
+            <img src="img/logo/ipg.png" alt="Sponsor 2">
+            <img src="img/logo/kinectrics.png" alt="Sponsor 3">
+            <img src="img/logo/lightweld.webp" alt="Sponsor 4">
+            <img src="img/logo/mda.png" alt="Sponsor 4">
+        </div>
+    </section>
+
     <!-- General members -->
-    <section class="members" id="members">
-        <h2>
-            Members
-        </h2>
+    <section class="members reveal" id="team">
+        <h1>Team Members</h1>
 
         <div class="member-grid">
             <div class="member__img-container">
@@ -67,7 +85,7 @@
                 <img src="img/dani.jpg" class="member__img" alt="Dani Zhao">
                 <div class="member__details">
                     <span class="member__name">Dani Zhao</span>
-                    <span class="member__role">Vice Team Lead</span>
+                    <span class="member__role">Structural Team Lead</span>
                     <span class="member__description">Mechanical Engineering</span>
                 </div>
             </div>
@@ -75,7 +93,7 @@
                 <img src="img/dani.jpg" class="member__img" alt="Brandon Lewis">
                 <div class="member__details">
                     <span class="member__name">Brandon Lewis</span>
-                    <span class="member__role">Vice Team Lead</span>
+                    <span class="member__role">Mechanics Team Lead</span>
                     <span class="member__description">Mechanical Engineering</span>
                 </div>
             </div>
@@ -83,7 +101,7 @@
                 <img src="img/vic.jpg" class="member__img" alt="Victoria Buzrazin">
                 <div class="member__details">
                     <span class="member__name">Victoria Buzrazin</span>
-                    <span class="member__role">Vice Team Lead</span>
+                    <span class="member__role">Steering Team Lead</span>
                     <span class="member__description">Civil Engineering</span>
                 </div>
             </div>
@@ -91,7 +109,7 @@
                 <img src="img/vic.jpg" class="member__img" alt="Ava Kelly">
                 <div class="member__details">
                     <span class="member__name">Ava Kelly</span>
-                    <span class="member__role">Vice Team Lead</span>
+                    <span class="member__role">Ergonomics Team Lead</span>
                     <span class="member__description">Mechanical Engineering</span>
                 </div>
             </div>
@@ -99,7 +117,7 @@
                 <img src="img/dj.jpg" class="member__img" alt="DJ Vandesande">
                 <div class="member__details">
                     <span class="member__name">DJ Vandesande</span>
-                    <span class="member__role">Vice Team Lead</span>
+                    <span class="member__role">Outreach Team Lead</span>
                     <span class="member__description">Computer Engineering</span>
                 </div>
             </div>
@@ -121,6 +139,8 @@
         </li>
     </ul>
 </footer>
+
+<script src="js/index.js"></script>
 
 </body>
 
