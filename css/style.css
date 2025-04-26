@@ -19,7 +19,7 @@ html {
     /*COLOURS*/
     --navy: #0a101b;         
     --plum: #1d1f52;      
-    --acc: #67177f;
+    --acc: #2b2b89;
     --cream: #ead7ce;      
 
     --bs: 0 4px 6px rgba(0,0,0,0.1);
@@ -90,7 +90,6 @@ h2, p {
 
 
 .header-menu a:hover {
-    text-decoration: underline;
     color: rgb(245, 206, 98);
 
 }
@@ -99,7 +98,7 @@ h2, p {
 
 .title {
     background: linear-gradient(to bottom, rgb(0, 0, 0), var(--plum));
-    padding-bottom: 2em;
+    padding-bottom: 5em;
     margin: 0 auto;
 
 }
@@ -137,20 +136,6 @@ h2, p {
     }
 }
 
-
-/* mission */
-.mission {
-    background: var(--plum);
-    background: linear-gradient(to bottom, var(--plum), var(--navy));
-
-    padding: 1em 1em 3em 1em; /* 1em padding left/right and 20em padding bottom */
-    text-align: center;
-}
-
-.mission p {
-    padding-bottom: 2em;
-}
-
 .button {
     background-color: var(--plum); /* Button color */
     color: var(--cream); /* Text color */
@@ -170,9 +155,87 @@ h2, p {
 
 }
 
+/* subteam */
+.subteams {
+    background: var(--plum);
+    background: linear-gradient(to bottom, var(--plum), var(--navy));
+    text-align: center;
+    align-items: center; /* Center the experiences horizontally */
+    font-family: 'Oxygen', bold;
+}
+
+.subteam__header{
+    grid-column: 1 / -1; /* span the full width */
+    align-items: center;
+}
+.subteam__header h3 {
+    text-align: center;
+    font-size: 3em; /* Enlarge the h1 text size */
+}
+
+.subteam {
+    padding-bottom: 4em;
+    display: grid;
+    gap: 2px;
+    grid-template-columns: 25% 25% 25% 25%; /* Four equal columns */
+}
+
+.subteam__item {
+    color: white;
+    font-size: 4em;
+    box-shadow: var(--bs);
+    border-radius: 10px; /* Add rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px; /* Add padding to extend border */
+    position: relative;
+    overflow: hidden;
+}
+
+.subteam__item::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--clr-lt);
+    font-size: 3rem;
+    font-weight: var(--fw-bold);
+    opacity: 0;
+    transition: opacity 300ms ease-in-out;
+    pointer-events: none; /* Ensure the text does not interfere with hover */
+    z-index: 3;
+
+}
+
+.subteam__item:hover::before {
+    opacity: 1;
+}
+
+.subteam__img {
+    transition: transform 750ms, 250ms linear;
+    max-width: calc(100% - 20px); /* Adjust max-width to account for padding */
+    max-height: calc(100% - 20px); /* Adjust max-height to account for padding */
+    border-radius: 10px; /* Add rounded corners */
+}
+
+.subteam__item:focus {
+    position: relative;
+    z-index: 2;
+    font-family: 'Oxygen', bold;
+}
+
+.subteam__img:hover {
+    transform: scale(1.1);
+    opacity: 0.25;
+
+}
+
 
 /* sponsors */
 .sponsors-logos h1 {
+    
     padding-top: 1em;
     text-align: center;
     font-size: 3em; /* Enlarge the h1 text size */
@@ -186,6 +249,7 @@ h2, p {
 }
 
 .logo-slider {
+    padding-top: 4em;
     display: flex;
     align-items: center;
     /* Duplicate set of logos ensures a continuous loop */
@@ -223,7 +287,6 @@ h2, p {
 .member-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid layout */
-    max-width: calc(100% - 20px); /* Adjust max-width to account for padding */
     max-height: calc(100% - 20px); /* Adjust max-height to account for padding */
 }
 
@@ -241,7 +304,7 @@ h2, p {
 /* Style for the member image */
 .member__img {
     max-height: 300px;               /* Set a convenient width */
-    width: 100%;                /* Fit within container */
+    height: 100%;                /* Fit within container */
     box-shadow: var(--bs);
     border-radius: 5px;         /* Optional: rounded corners */
 }
