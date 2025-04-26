@@ -141,7 +141,7 @@ h2, p {
     color: var(--cream); /* Text color */
     padding: 0.5em 1em; /* Padding for the button */
     border-radius: 10px; /* Rounded corners */
-    font-size: 1.5em; /* Font size for the button text */
+    font-size: 2em; /* Font size for the button text */
     text-transform: uppercase;
     font-family: 'Oxygen', bold;
     transition: transform 300ms ease-in-out;
@@ -234,11 +234,11 @@ h2, p {
 
 
 /* sponsors */
-.sponsors-logos h1 {
-    
-    padding-top: 1em;
+
+.sponsors-logos p {
+    padding-top: 2em;
     text-align: center;
-    font-size: 3em; /* Enlarge the h1 text size */
+    font-size: 1em; /* Enlarge the h1 text size */
 }
 
 .sponsors-logos {
@@ -249,7 +249,7 @@ h2, p {
 }
 
 .logo-slider {
-    padding-top: 4em;
+    padding-top: 2em;
     display: flex;
     align-items: center;
     /* Duplicate set of logos ensures a continuous loop */
@@ -275,7 +275,7 @@ h2, p {
 
 /* members */
 .members {
-    padding-top: 7em;
+    padding-top: 2em;
     background: linear-gradient(to bottom, var(--navy) 0%, rgba(10,16,27,0) 100%), url('../img/hubble.jpg');
 }
 
@@ -343,52 +343,33 @@ h2, p {
 
 /* footer */
 .footer {
-    background: rgb(15, 9, 26);
-    color: var(--clr-accent-light);
+    background: var(--navy); /* Matches your sponsors section background */
+    color: var(--cream);
     text-align: center;
-    padding: 2.5em 0;
-
+    padding: 3em;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
 }
 
-.footer a {
-    color: inherit;
-    text-decoration: none;
+.footer p {
+    margin: 0 0 1em;
+}
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em; /* space between icons */
 }
 
 .footer__link {
-    font-weight: var(--fw-bold);
-}
-
-.footer__link:hover,
-.social-list__link:hover {
-    opacity: .7;
+    color: var(--cream);
+    font-size: 1.5em; /* Adjust icon size */
+    text-decoration: none;
+    transition: color 300ms ease;
 }
 
 .footer__link:hover {
-    color: var(--clr-lt);
-    text-decoration: underline;
+    color: var(--acc);
 }
-
-.social-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-
-
-    margin: 1em 0 0;
-    padding: 0;
-}
-
-
-.social-list__item {
-    margin: 0.5em;
-}
-
-.social-list__link {
-    color: var(--clr-lt);
-    padding: 0em;
-}
-
-
-
 
