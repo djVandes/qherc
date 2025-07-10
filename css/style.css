@@ -12,7 +12,6 @@ html {
     scroll-behavior: smooth;
 }
 
-
 :root{
     --fw-reg: 600;
     --fw-bold: 900;
@@ -28,7 +27,7 @@ html {
 }
 
 body{
-    background-color: var(--navy); /* Set the background color to navy */
+    background-color: #000000; /* Set the background color to navy */
     color: var(--cream); /* Ensure text is readable on navy background */
     margin: 0;
     padding: 0;
@@ -77,19 +76,23 @@ h2, p {
 /* Header menu styling */
 .header-menu {
     list-style: none;
-    padding-top: 0.5em;
     z-index: 1000;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
 }
 
 .header-menu a {
     font-size: 1.25em; /* Enlarge the h1 text size */
-    margin: 0 15px;
     color: var(--cream);
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
     font-weight: var(--fw-bold);
+    flex: 1 1 40%;
+    min-width: 120px;
+    margin: 5px 6px;
+    text-align: center;
 }
 
 .header-menu a:hover {
@@ -153,7 +156,6 @@ h2, p {
 .button:hover {
     transform: scale(1.15);
     background-color: var(--acc); /* Button color */
-
 }
 
 /* subteam */
@@ -162,34 +164,45 @@ h2, p {
     background: linear-gradient(to bottom, var(--black), var(--navy)); 
     text-align: center;
     align-items: center; /* Center the experiences horizontally */
-    font-family: 'Oxygen', bold;
+    font-family: 'Oxygen', bold;  
+    
 }
+.subteam {
+    padding-bottom: 4em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2px;
+    padding-left: 3em;
+    padding-right: 3em;
+    
 
+}
 .subteam__header{
+    animation: fadeInUp 1s ease-out forwards;
     grid-column: 1 / -1; /* span the full width */
     align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
+
+.subteam__header.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .subteam__header h3 {
     text-align: center;
     font-size: 3em; /* Enlarge the h1 text size */
 }
-
-.subteam {
-    padding-bottom: 4em;
-    display: grid;
-    gap: 2px;
-    grid-template-columns: 25% 25% 25% 25%; /* Four equal columns */
-}
-
 .subteam__item {
     color: white;
     font-size: 4em;
-    box-shadow: var(--bs);
     border-radius: 10px; /* Add rounded corners */
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px; /* Add padding to extend border */
+    padding: 5px; /* Add padding to extend border */
     position: relative;
     overflow: hidden;
 }
@@ -244,9 +257,8 @@ h2, p {
 
 .sponsors-logos {
     overflow: hidden;
-    width: 100%;
-    background: var(--navy);
-    padding: 1em 0;
+    width: 90vw;
+    padding: 1em 5em;
     position: relative;
 }
 
@@ -274,17 +286,26 @@ h2, p {
     }
 }
 
-
-
 /* members */
 .members {
     padding-top: 2em;
-    background: linear-gradient(to bottom, var(--navy) 0%, rgba(10,16,27,0) 100%), url('../img/hubble.jpg');
+    z-index: 5;
 }
 
 .members h1 {
+    z-index: 10;
     font-size: 3em; /* Enlarge the h1 text size */
     text-align: center;
+}
+.members-header {
+    z-index: 20;
+    position: relative;
+    text-align: center;
+    margin-bottom: 2em;
+    animation: fadeInUp 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 .member-grid {
@@ -307,6 +328,7 @@ h2, p {
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 5;
 }
 .member__img-container:hover {
     transform: scale(1.15);
@@ -409,14 +431,22 @@ h2, p {
 .hero__moon {
     position: absolute;
     left: 50%;
-    bottom: -30em;
+    bottom: -30vw; /* Place moon at the bottom of the screen */
     transform: translateX(-50%);
-    width: 1000px;
+    width: 60vw; /* 2/3 of the viewport width */
     max-width: 240vw;
     z-index: 4;
     transition: transform 0.2s;
     will-change: transform;
     pointer-events: none;
+}
+
+/* Responsive adjustment for very small screens */
+@media (max-width: 600px) {
+    .hero__moon {
+        width: 90vw;
+        max-width: 100vw;
+    }
 }
 
 .hero__content {
@@ -441,6 +471,7 @@ h2, p {
 }
 .subteams {
     padding-bottom: 3em;
+    background: linear-gradient(to bottom, var(--black), var(--plum), var(--black));
 }
 
 /* Starry Night Animation */
@@ -487,5 +518,8 @@ h2, p {
 header, .navbar, .header-menu, .header-menu a {
     pointer-events: auto;
 }
+
+
+
 
 
