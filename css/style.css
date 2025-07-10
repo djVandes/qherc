@@ -12,11 +12,13 @@ html {
     scroll-behavior: smooth;
 }
 
+
 :root{
     --fw-reg: 600;
     --fw-bold: 900;
     
     /*COLOURS*/
+    --black: #000000;  
     --navy: #0a101b;         
     --plum: #1d1f52;      
     --acc: #2b2b89;
@@ -26,8 +28,8 @@ html {
 }
 
 body{
-    background-color: var(--navy); /* Set the background color to black */
-    color: var(--cream); /* Ensure text is readable on black background */
+    background-color: var(--navy); /* Set the background color to navy */
+    color: var(--cream); /* Ensure text is readable on navy background */
     margin: 0;
     padding: 0;
 
@@ -42,6 +44,7 @@ body{
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 /* drama */
 .reveal {
@@ -66,7 +69,7 @@ h2, p {
     left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    z-index: 1000;
+    z-index: 1000; /* Ensure it stays on top */
     padding: 0.5em 1em;
     text-transform: uppercase;
 }
@@ -75,6 +78,7 @@ h2, p {
 .header-menu {
     list-style: none;
     padding-top: 0.5em;
+    z-index: 1000;
     display: flex;
     justify-content: center;
 }
@@ -88,16 +92,13 @@ h2, p {
     font-weight: var(--fw-bold);
 }
 
-
 .header-menu a:hover {
     color: rgb(245, 206, 98);
-
 }
 
 /* title */
-
 .title {
-    background: linear-gradient(to bottom, rgb(0, 0, 0), var(--plum));
+    /* background: linear-gradient(to bottom, rgb(0, 0, 0), var(--plum)); */
     padding-bottom: 5em;
     margin: 0 auto;
 
@@ -157,8 +158,8 @@ h2, p {
 
 /* subteam */
 .subteams {
-    background: var(--plum);
-    background: linear-gradient(to bottom, var(--plum), var(--navy));
+    padding-top: 5em;
+    background: linear-gradient(to bottom, var(--black), var(--navy)); 
     text-align: center;
     align-items: center; /* Center the experiences horizontally */
     font-family: 'Oxygen', bold;
@@ -236,24 +237,26 @@ h2, p {
 /* sponsors */
 
 .sponsors-logos p {
-    padding-top: 2em;
     text-align: center;
     font-size: 1em; /* Enlarge the h1 text size */
+    
 }
 
 .sponsors-logos {
     overflow: hidden;
     width: 100%;
-    background: var(--navy); /* or any background color you want */
+    background: var(--navy);
     padding: 1em 0;
+    position: relative;
 }
 
 .logo-slider {
     padding-top: 2em;
     display: flex;
     align-items: center;
-    /* Duplicate set of logos ensures a continuous loop */
-    animation: slide 10s linear infinite;
+    gap: 4em;
+    width: max-content;
+    animation: slide 20s linear infinite;
 }
 
 .logo-slider img {
@@ -285,17 +288,25 @@ h2, p {
 }
 
 .member-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsive grid layout */
-    max-height: calc(100% - 20px); /* Adjust max-height to account for padding */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2em;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Container for each print item */
 .member__img-container {
-    margin: auto;           /* Center the container with spacing */
-    padding-bottom: 1.5em;;
+    margin: 1em;
+    padding-bottom: 1.5em;
     text-align: center;
     transition: transform 500ms ease-in-out;
+    flex: 0 1 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .member__img-container:hover {
     transform: scale(1.15);
@@ -343,7 +354,7 @@ h2, p {
 
 /* footer */
 .footer {
-    background: var(--navy); /* Matches your sponsors section background */
+    background: var(--navy);
     color: var(--cream);
     text-align: center;
     padding: 3em;
@@ -372,4 +383,109 @@ h2, p {
 .footer__link:hover {
     color: var(--acc);
 }
+
+/* Hero Section Styles */
+.hero {
+    background-color: #000000;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    /* background: #000; */
+}
+
+.hero__stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0; left: 0;
+    z-index: 1;
+}
+
+.hero__moon {
+    position: absolute;
+    left: 50%;
+    bottom: -30em;
+    transform: translateX(-50%);
+    width: 1000px;
+    max-width: 240vw;
+    z-index: 4;
+    transition: transform 0.2s;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.hero__content {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.hero__title {
+    font-size: 3em; /* Enlarge the h1 text size */
+    color: var(--cream);
+    font-family: 'Oxygen', bold;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Prevent the Discord button from being cut off by sponsors section */
+#discord {
+    margin-bottom: 2.5em;
+    display: inline-block;
+}
+.subteams {
+    padding-bottom: 3em;
+}
+
+/* Starry Night Animation */
+.starry-night {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+.stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.stars {
+    background: url('../img/style/stars.png') repeat;
+    z-index: 1;
+}
+.twinkling {
+    background: url('../img/style/twinkling.png') repeat;
+    animation: moveTwinkling 200s linear infinite;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+@keyframes moveTwinkling {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+
+/* Ensure starry night layers do not block pointer events */
+.starry-night, .stars, .twinkling {
+    pointer-events: none;
+}
+
+/* Restore pointer events for header and navbar */
+header, .navbar, .header-menu, .header-menu a {
+    pointer-events: auto;
+}
+
 

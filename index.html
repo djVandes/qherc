@@ -33,23 +33,27 @@
         </nav>
     </header>
 
-    <section class="title" id = "home">
-        <div class="title__text">
-            <h1>Q-HERC</h1>
-            <h2>Human Exploration Rover Challenge</h2>
-            <p>NASA's first and only Canadian team</p>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero__background">
+            <!-- Starry night background moved here for correct stacking -->
+            <div class="starry-night">
+                <div class="stars"></div>
+                <div class="twinkling"></div>
+                <img src="img/style/full_moon.png" alt="Moon" class="hero__moon" id="moon">
+            </div>
         </div>
-        <img src="img/herc.JPG" alt="QHERC" class="title__img">
-
+        <div class="hero__content">
+            <h1 class="hero__title">Queen's University <br>Human Exploration Rover Challenge</h1>
+        </div>
     </section>
 
     <!-- My Works -->
-    <section class = "subteams" id="subteams">
-        
+    <section class = "subteams" id="mission">
 
         <div class = "subteam">
             <div class="subteam__header">
-                <!-- <h3>MISSION OBJECTIVES</h3> -->
+                <h3>MISSION OBJECTIVES</h3>
             </div>
 
             <a href="sub/outreach.html" class="subteam__item" data-text="OUTREACH">
@@ -68,6 +72,10 @@
                 <img src="img/race.JPG" alt="RACE" class="subteam__img">
             </a>
 
+
+
+
+
         </div>
         <a href = "https://discord.gg/NtXCsjFm" class="button" id="discord"><strong>Join our Discord</strong></a>
 
@@ -82,12 +90,13 @@
             <img src="img/logo/ipg.png" alt="Sponsor 2">
             <img src="img/logo/kinectrics.png" alt="Sponsor 3">
             <img src="img/logo/lightweld.webp" alt="Sponsor 4">
-            <img src="img/logo/mda.png" alt="Sponsor 4">
+            <img src="img/logo/mda.png" alt="Sponsor 5">
+            <!-- Duplicate logos for seamless loop -->
             <img src="img/logo/hangingstone.png" alt="Sponsor 1">
             <img src="img/logo/ipg.png" alt="Sponsor 2">
             <img src="img/logo/kinectrics.png" alt="Sponsor 3">
             <img src="img/logo/lightweld.webp" alt="Sponsor 4">
-            <img src="img/logo/mda.png" alt="Sponsor 4">
+            <img src="img/logo/mda.png" alt="Sponsor 5">
         </div>
     </section>
 
@@ -167,7 +176,7 @@
         </div>
     </footer>
 
-<script src="js/index.js"></script>
+    <script src="js/index.js"></script>
 
 </body>
 
