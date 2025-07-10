@@ -91,7 +91,7 @@ h2, p {
     font-weight: var(--fw-bold);
     flex: 1 1 40%;
     min-width: 120px;
-    margin: 5px 6px;
+    margin: 5px 8px;
     text-align: center;
 }
 
@@ -252,6 +252,8 @@ h2, p {
 .sponsors-logos p {
     text-align: center;
     font-size: 1em; /* Enlarge the h1 text size */
+    padding-left: 2em;
+    padding-right: 2em;
     
 }
 
@@ -459,6 +461,8 @@ h2, p {
     font-size: 3em; /* Enlarge the h1 text size */
     color: var(--cream);
     font-family: 'Oxygen', bold;
+    padding-left: 2em;
+    padding-right: 2em;
     animation: fadeInUp 1s ease-out forwards;
 }
 
