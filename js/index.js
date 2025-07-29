@@ -1,6 +1,7 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const reveals = document.querySelectorAll(".reveal");
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Reveal animation
+    const reveals = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -12,6 +13,48 @@ document.addEventListener("DOMContentLoaded", function() {
     reveals.forEach(element => {
         observer.observe(element);
     });
+
+    // Subteam item expansion
+    const subteamItems = document.querySelectorAll('.subteam__item');
+    subteamItems.forEach((item, idx) => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+            const wasExpanded = item.classList.contains('expanded');
+
+            // Collapse any expanded item except the one being clicked
+            subteamItems.forEach((itm, i) => {
+                if (itm !== item) {
+                    itm.classList.remove('expanded', 'slide-up', 'slide-down');
+                    itm.style.zIndex = '';
+                }
+            });
+
+            if (!wasExpanded) {
+                // Expand the clicked item
+                item.classList.add('expanded');
+                item.style.zIndex = '10';
+                // Slide up items before, slide down items after
+                for (let i = 0; i < subteamItems.length; i++) {
+                    if (i < idx) {
+                        subteamItems[i].classList.add('slide-up');
+                    } else if (i > idx) {
+                        subteamItems[i].classList.add('slide-down');
+                    }
+                }
+                setTimeout(() => {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            } else {
+                // Shrink back to normal size
+                item.classList.remove('expanded');
+                item.style.zIndex = '';
+                // Remove slide-up/slide-down from all
+                subteamItems.forEach((itm) => {
+                    itm.classList.remove('slide-up', 'slide-down');
+                });
+            }
+        });
+    });
 });
 
 // Moon Parallax Scroll Effect
@@ -21,52 +64,4 @@ window.addEventListener('scroll', function() {
     const scrollY = window.scrollY;
     // Move the moon up at twice the scroll speed
     moon.style.transform = `translate(-50%, ${-3 * scrollY}px)`;
-});
-
-// Load particles.js background
-window.addEventListener('DOMContentLoaded', function() {
-    if (window.particlesJS) {
-        particlesJS.load('particles-js', 'particlesjs-config.json');
-    } else {
-        var script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
-        script.onload = function() {
-            particlesJS.load('particles-js', 'particlesjs-config.json');
-        };
-        document.body.appendChild(script);
-    }
-});
-
-// particles.js + stats.js integration
-window.addEventListener('DOMContentLoaded', function() {
-  if (window.particlesJS) {
-    particlesJS.load('particles-js', 'particlesjs-config.json', function() {
-      // Count particles
-      var count_particles = document.querySelector('.js-count-particles');
-      var updateCount = function() {
-        if (window.pJSDom && window.pJSDom[0] && window.pJSDom[0].pJS) {
-          var count = window.pJSDom[0].pJS.particles.array.length;
-          count_particles.textContent = count;
-        }
-        requestAnimationFrame(updateCount);
-      };
-      updateCount();
-    });
-  }
-
-  // stats.js
-  if (window.Stats) {
-    var stats = new Stats();
-    stats.setMode(0);
-    stats.domElement.style.position = 'absolute';
-    stats.domElement.style.top = '0px';
-    stats.domElement.style.left = '0px';
-    document.body.appendChild(stats.domElement);
-    function updateStats() {
-      stats.begin();
-      stats.end();
-      requestAnimationFrame(updateStats);
-    }
-    requestAnimationFrame(updateStats);
-  }
 });
