@@ -1,11 +1,8 @@
 # QHERC
 Website for the Q-HERC design team
 
-## FIXME
-* fix mission statement
-* get a campier font
-* figure out transformations
-
 ## Next features
-* achievements page
-* subteam subpages
+* News about us - recent articles involving HERC
+* mission objectiove popups when clicked
+* mission objective header that says click for more V (the V boyoings a lil)
+* Team member headshots lead to linkedin
