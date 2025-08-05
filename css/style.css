@@ -20,7 +20,8 @@ html {
     --black: #000000;  
     --navy: #0a101b;         
     --plum: #1d1f52;      
-    --acc: #2b2b89;
+    --acc: #93362c;
+    --burn: #521f18;
     --cream: #ead7ce;      
 
     --bs: 0 4px 6px rgba(0,0,0,0.1);
@@ -150,7 +151,7 @@ h2, p {
 }
 
 .button {
-    background-color: var(--plum); /* Button color */
+    background-color: var(--acc); /* Button color */
     color: var(--cream); /* Text color */
     padding: 0.5em 1em; /* Padding for the button */
     border-radius: 10px; /* Rounded corners */
@@ -163,8 +164,9 @@ h2, p {
 }
 
 .button:hover {
-    transform: scale(1.15);
-    background-color: var(--acc); /* Button color */
+    transform: scale(1.05);
+    background-color: var(--cream); /* Button color */
+    color: var(--navy); /* Text color */
 }
 
 
@@ -172,7 +174,14 @@ h2, p {
 .subteams {
     padding-top: 5em;
     padding-bottom: 3em;
-    background: linear-gradient(to bottom, var(--black), var(--plum), var(--black));
+    background: linear-gradient(to bottom, 
+        rgb(0, 0, 0),
+        rgba(29, 31, 82, 0.3),
+        rgb(0, 0, 0)
+    ), url('../img/hubble.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     text-align: center;
     align-items: center; /* Center the experiences horizontally */
     font-family: 'Oxygen', bold;  
@@ -189,28 +198,6 @@ h2, p {
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.subteam-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2em;
-    max-width: 100%;
-    padding-top: 5em;
-    font-family: 'Oxygen', bold;  
-}
-
-.subteam {
-    padding-bottom: 4em;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 2px;
-    padding-left: 3em;
-    padding-right: 3em;
 }
 
 .subteam__header.active {
@@ -231,17 +218,19 @@ h2, p {
 }
 
 .subteam-panel {
-    background: var(--plum);
+    background: #66261e;
+    backdrop-filter: blur(2px);
     color: var(--cream);
     border-radius: 10px;
     margin-bottom: 1em;
     box-shadow: var(--bs);
     overflow: hidden;
-    transition: box-shadow 0.3s;
+    transition: box-shadow 0.3s, background 0.3s ease;
 }
 
 .subteam-panel.active {
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+
 }
 
 .subteam-panel-header {
@@ -256,6 +245,18 @@ h2, p {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
+}
+
+.subteam-panel-header::after {
+    content: '+';
+    font-size: 1.5em;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+.subteam-panel.active .subteam-panel-header::after {
+    transform: rotate(45deg);
 }
 
 .subteam-panel-header:hover {
@@ -268,7 +269,7 @@ h2, p {
     overflow: hidden;
     transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
     opacity: 0;
-    background: var(--plum);
+    background: var(--burn);
     padding: 0 1.5em;
     display: flex;
     align-items: flex-start;
@@ -349,8 +350,9 @@ h2, p {
 
 /* sponsors */
 .sponsors-logos p {
+    font-size: clamp(1em, 1vw + 0.8em, 1.3em);
+
     text-align: center;
-    font-size: 1em; /* Enlarge the h1 text size */
     padding-left: 2em;
     padding-right: 2em;
 }
@@ -414,7 +416,7 @@ h2, p {
     justify-content: center;
     align-items: flex-start;
     gap: 2em;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto;
 }
 
