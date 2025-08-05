@@ -138,12 +138,65 @@ h2, p {
     }
     .title__text {
         grid-area: title;
-        padding-left: 5em;
     }
     .title__text h1 {
         font-size: 5em; /* Enlarge the h1 text size */
         margin: 0;
     }
+}
+
+
+/* Hero Section Styles */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.hero__stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    top: 0; left: 0;
+    z-index: 1;
+}
+
+.hero__moon {
+    position: absolute;
+    left: 50%;
+    bottom: -30vw; /* Place moon at the bottom of the screen */
+    transform: translateX(-50%);
+    width: 60%; /* 2/3 of the viewport width */
+    max-width: 240%;
+    z-index: 4;
+    transition: transform 0.2s;
+    will-change: transform;
+    pointer-events: none;
+}
+
+.hero__content {
+    position: absolute;
+    top: 15%;
+    width: 100%;
+    text-align: center;
+    z-index: 5;
+}
+
+.hero__title {
+    font-size: 3em; /* Enlarge the h1 text size */
+    color: var(--cream);
+    font-family: 'Oxygen', bold;
+
+    animation: fadeInUp 1s ease-out forwards;
+}
+.hero__title h2{
+    font-family: 'Oxygen';
+    font-size: 3em; /* Enlarge the h1 text size */
 }
 
 .button {
@@ -273,12 +326,11 @@ h2, p {
 }
 
 .subteam-panel-img {
-    width: 25%;
     flex-shrink: 0;
     justify-content: center;
     border-radius: 10px;
     box-shadow: var(--bs);
-    height: 300px;
+    max-height: 300px;
     width: auto;
     object-fit: cover;
     display: flex;
@@ -299,16 +351,15 @@ h2, p {
         flex-direction: column;
         align-items: center;
         padding-top: 2em;
-        padding-left: 3em;
-        padding-right: 3em;
+        padding-left: 1em;
+        padding-right: 1em;
         grid-template-areas:
             "img desc";
         margin: 0 auto;
     }
     
     .subteam-panel-img {
-        width: 100%;
-        max-width: 400px;
+        max-width: auto;
         height: 300px;
         object-fit: cover;
     }
@@ -326,8 +377,11 @@ h2, p {
     }
 }
 
-.subteam-panel-desc ul {
-    list-style-position: inside;
+.subteam-panel-desc h3 {
+    font-size: clamp(1.5em, 2vw + 0.8em, 2.5em);
+    line-height: 1.2;
+    text-align: center;
+    color: var(--cream);
 }
 
 .subteam-panel-desc li {
@@ -504,68 +558,7 @@ h2, p {
     color: var(--acc);
 }
 
-/* Hero Section Styles */
-.hero {
-    background-color: #000000;
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    /* background: #000; */
-}
 
-.hero__stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    top: 0; left: 0;
-    z-index: 1;
-}
-
-.hero__moon {
-    position: absolute;
-    left: 50%;
-    bottom: -30vw; /* Place moon at the bottom of the screen */
-    transform: translateX(-50%);
-    width: 60%; /* 2/3 of the viewport width */
-    max-width: 240%;
-    z-index: 4;
-    transition: transform 0.2s;
-    will-change: transform;
-    pointer-events: none;
-}
-
-
-.hero__content {
-    position: absolute;
-    top: 15%;
-    width: 100%;
-    text-align: center;
-    z-index: 5;
-}
-
-.hero__title {
-    font-size: 3em; /* Enlarge the h1 text size */
-    color: var(--cream);
-    font-family: 'Oxygen', bold;
-    padding-left: 2em;
-    padding-right: 2em;
-    animation: fadeInUp 1s ease-out forwards;
-}
-.hero__title h2{
-    font-family: 'Oxygen';
-    font-size: 3em; /* Enlarge the h1 text size */
-}
-
-/* Prevent the Discord button from being cut off by sponsors section */
-#discord {
-    margin-bottom: 2.5em;
-    display: inline-block;
-}
 
 /* Starry Night Animation */
 .starry-night {
