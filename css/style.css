@@ -72,7 +72,7 @@ h2, p {
 .navbar {
     position: fixed;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
     z-index: 1000; /* Ensure it stays on top */;
     text-transform: uppercase;
 }
@@ -175,7 +175,7 @@ h2, p {
     ), url('../img/hubble.jpg');
 
     background-size: cover;
-=    background-attachment: fixed;
+   background-attachment: fixed;
     text-align: center;
     align-items: center; /* Center the experiences horizontally */
     font-family: 'Oxygen', bold;  
@@ -267,7 +267,7 @@ h2, p {
 }
 
 .subteam-panel.active .subteam-panel-content {
-    max-height: 500px;
+    max-height: 100%;
     opacity: 1;
     padding: 1.5em;
 }
@@ -277,54 +277,52 @@ h2, p {
     flex-shrink: 0;
     justify-content: center;
     border-radius: 10px;
-    padding: 2em 2em 2em 2em;
     box-shadow: var(--bs);
+    height: 300px;
+    width: auto;
+    object-fit: cover;
+    display: flex;
+    align-items: center;
+}
+
+.subteam-panel-desc {
+    flex: 1;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 @media (max-width: 900px) {
     .subteam-panel.active .subteam-panel-content {
         flex-direction: column;
         align-items: center;
-        padding-bottom: 2em;
+        padding-top: 2em;
+        padding-left: 3em;
+        padding-right: 3em;
         grid-template-areas:
             "img desc";
-
         margin: 0 auto;
-        padding-bottom: 12em;        
     }
     
     .subteam-panel-img {
-        width: 80%;
-        max-width: 300px;
+        width: 100%;
+        max-width: 400px;
+        height: 300px;
+        object-fit: cover;
     }
     .subteam-panel-desc {
-        font-size: clamp(1.5em, 1vw + 0.8em, 1.3em);
+        font-size: clamp(1em, 1vw + 0.8em, 1.3em);
         color: var(--cream);
         text-align: center;
-        line-height: 1.25;
-        min-height: 300px;
-        max-height: 600px;
-
+        height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         overflow-y: auto;
-        padding-right: 1em;
-        /* Styling the scrollbar */
-        scrollbar-width: thin;
-        scrollbar-color: var(--acc) var(--burn);
-    }
-    
-    /* Webkit scrollbar styling (for Chrome, Safari, newer versions of Edge) */
-    .subteam-panel-desc::-webkit-scrollbar {
-        width: 8px;
-    }
-    
-    .subteam-panel-desc::-webkit-scrollbar-track {
-        background: var(--burn);
-        border-radius: 4px;
-    }
-    
-    .subteam-panel-desc::-webkit-scrollbar-thumb {
-        background: var(--acc);
-        border-radius: 4px;
+        padding: 0 2em;
     }
 }
 
@@ -335,6 +333,7 @@ h2, p {
 .subteam-panel-desc li {
     color: var(--cream);
 }
+
 
 /* sponsors */
 .sponsors-logos p {
@@ -530,7 +529,7 @@ h2, p {
 .hero__moon {
     position: absolute;
     left: 50%;
-    bottom: -35%; /* Place moon at the bottom of the screen */
+    bottom: -30vw; /* Place moon at the bottom of the screen */
     transform: translateX(-50%);
     width: 60%; /* 2/3 of the viewport width */
     max-width: 240%;
@@ -540,13 +539,6 @@ h2, p {
     pointer-events: none;
 }
 
-/* Responsive adjustment for very small screens */
-@media (max-width: 600px) {
-    .hero__moon {
-        width: 90%;
-        max-width: 100%;
-    }
-}
 
 .hero__content {
     position: absolute;
