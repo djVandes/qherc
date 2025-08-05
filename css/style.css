@@ -3,10 +3,7 @@ h1 {
     font-family: 'Oxygen', bold;
     font-size: 5em; /* Enlarge the h1 text size */
 }
-h2 {
-    font-family: 'Oxygen';
-    font-size: 3em; /* Enlarge the h1 text size */
-}
+
 
 html {
     scroll-behavior: smooth;
@@ -222,12 +219,11 @@ h2, p {
     margin-bottom: 1em;
     box-shadow: var(--bs);
     overflow: hidden;
-    transition: box-shadow 0.3s, background 0.3s ease;
+    transition: box-shadow 0.3s;
 }
 
 .subteam-panel.active {
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-
 }
 
 .subteam-panel-header {
@@ -571,6 +567,10 @@ h2, p {
     padding-left: 2em;
     padding-right: 2em;
     animation: fadeInUp 1s ease-out forwards;
+}
+.hero__title h2{
+    font-family: 'Oxygen';
+    font-size: 3em; /* Enlarge the h1 text size */
 }
 
 /* Prevent the Discord button from being cut off by sponsors section */
