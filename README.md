@@ -1,4 +1,4 @@
-# QHERC
+# QHERC Homepage
 Website for the Q-HERC design team
 
 ## Features
