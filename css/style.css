@@ -175,8 +175,7 @@ h2, p {
     ), url('../img/hubble.jpg');
 
     background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+=    background-attachment: fixed;
     text-align: center;
     align-items: center; /* Center the experiences horizontally */
     font-family: 'Oxygen', bold;  
