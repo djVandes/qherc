@@ -1,8 +1,12 @@
-# QHERC
+# QHERC Homepage
 Website for the Q-HERC design team
+
+## Features
+* Mission Statements
+* Discord Links
+* Members List
+* Sponsors Carousel
+
 
 ## Next features
 * News about us - recent articles involving HERC
-* mission objectiove popups when clicked
-* mission objective header that says click for more V (the V boyoings a lil)
-* Team member headshots lead to linkedin
