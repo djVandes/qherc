@@ -71,12 +71,9 @@ h2, p {
 /* navbar */
 .navbar {
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
-    z-index: 1000; /* Ensure it stays on top */
-    padding: 0.5em 1em;
+    z-index: 1000; /* Ensure it stays on top */;
     text-transform: uppercase;
 }
 
@@ -98,8 +95,10 @@ h2, p {
     font-weight: var(--fw-bold);
     flex: 1 1 40%;
     min-width: 120px;
-    margin: 5px 8px;
+    margin: 8px;
     text-align: center;
+    justify-content: center;
+
 }
 
 .header-menu a:hover {
@@ -174,6 +173,7 @@ h2, p {
         rgba(29, 31, 82, 0.3),
         rgb(0, 0, 0)
     ), url('../img/hubble.jpg');
+
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -348,9 +348,10 @@ h2, p {
 
 .sponsors-logos {
     overflow: hidden;
-    width: 90vw;
+    width: calc(100% - 10em); /* Subtract the txotal horizontal padding */
     padding: 1em 5em;
     position: relative;
+    margin: 0 auto;
 }
 
 .logo-slider {
@@ -509,7 +510,7 @@ h2, p {
 .hero {
     background-color: #000000;
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     overflow: hidden;
     display: flex;
@@ -530,10 +531,10 @@ h2, p {
 .hero__moon {
     position: absolute;
     left: 50%;
-    bottom: -30vw; /* Place moon at the bottom of the screen */
+    bottom: -35%; /* Place moon at the bottom of the screen */
     transform: translateX(-50%);
-    width: 60vw; /* 2/3 of the viewport width */
-    max-width: 240vw;
+    width: 60%; /* 2/3 of the viewport width */
+    max-width: 240%;
     z-index: 4;
     transition: transform 0.2s;
     will-change: transform;
@@ -543,8 +544,8 @@ h2, p {
 /* Responsive adjustment for very small screens */
 @media (max-width: 600px) {
     .hero__moon {
-        width: 90vw;
-        max-width: 100vw;
+        width: 90%;
+        max-width: 100%;
     }
 }
 
