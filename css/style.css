@@ -1,25 +1,16 @@
-/* fonts */
-h1 {
-    font-family: 'Oxygen', bold;
-    font-size: 5em; /* Enlarge the h1 text size */
-}
-
-
 html {
     scroll-behavior: smooth;
 }
 
 :root{
-    --fw-reg: 600;
-    --fw-bold: 900;
-    
     /*COLOURS*/
     --black: #000000;  
     --navy: #0a101b;         
     --plum: #1d1f52;      
     --acc: #7a1e2e;
     --burn: #521821;
-    --cream: #ead7ce;      
+    --cream: #ead7ce;  
+    --baby: #bbc5df; /* Light cream for contrast */    
 
     --bs: 0 4px 6px rgba(0,0,0,0.1);
 }
@@ -29,29 +20,8 @@ body{
     color: var(--cream); /* Ensure text is readable on navy background */
     margin: 0;
     padding: 0;
-
 }
 
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px); /* starts 50px below */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
 /* drama */
 .reveal {
     opacity: 0;
@@ -64,7 +34,7 @@ body{
     transform: translateY(0);
 }
 
-h2, p {
+h1, h2, p {
     font-family: 'Oxygen';
 }
 
@@ -94,15 +64,13 @@ h2, p {
     color: var(--cream);
     text-decoration: none;
     font-family: 'Oxygen';
-    font-weight: var(--fw-bold);
     flex: 1 1 40%;
     min-width: 120px;
     margin: 8px;
-
 }
 
 .header-menu a:hover {
-    color: rgb(245, 206, 98);
+    color: var(--baby); /* Change color on hover */
 }
 
 /* title */
@@ -187,16 +155,19 @@ h2, p {
     z-index: 5;
 }
 
-.hero__title {
+.hero__content h1 {
     font-size: 3em; /* Enlarge the h1 text size */
     color: var(--cream);
-    font-family: 'Oxygen', bold;
-
     animation: fadeInUp 1s ease-out forwards;
 }
-.hero__title h2{
+.hero__content h2{
+    font-size: 2em; /* Enlarge the h1 text size */
     font-family: 'Oxygen';
-    font-size: 3em; /* Enlarge the h1 text size */
+
+}
+
+.hero__content h1:hover,h2:hover {
+    color: var(--baby);
 }
 
 .button {
@@ -206,7 +177,7 @@ h2, p {
     border-radius: 10px; /* Rounded corners */
     font-size: 2em; /* Font size for the button text */
     text-transform: uppercase;
-    font-family: 'Oxygen', bold;
+    font-family: 'Oxygen';
     transition: transform 300ms ease-in-out;
     display: inline-block; /* Ensure transforms work properly */
     text-decoration: none;
@@ -424,15 +395,6 @@ h2, p {
     margin: 0 2em;
 }
 
-/* Adjust the keyframe percentage based on the width of your content */
-@keyframes slide {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%);
-    }
-}
 
 /* members */
 .members {
@@ -682,4 +644,36 @@ h2, p {
 /* Restore pointer events for header and navbar */
 header, .navbar, .header-menu, .header-menu a {
     pointer-events: auto;
+}
+
+/* Transformations */
+
+/* Adjust the keyframe percentage based on the width of your content */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px); /* starts 50px below */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
