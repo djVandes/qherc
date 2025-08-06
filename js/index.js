@@ -17,16 +17,35 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.subteam-panel-header').forEach(header => {
         header.addEventListener('click', function() {
             const panel = this.parentElement;
+            const content = panel.querySelector('.subteam-panel-content');
             const isActive = panel.classList.contains('active');
-            
-            // Close all panels
-            document.querySelectorAll('.subteam-panel').forEach(p => {
-                p.classList.remove('active');
-            });
-            
-            // If the clicked panel wasn't active, open it
-            if (!isActive) {
+
+            if (isActive) {
+                // Smoothly close the panel
+                content.style.transition = 'max-height 0.5s ease';
+                content.style.maxHeight = content.scrollHeight + 'px'; // Set to current height to enable transition
+                content.style.background = 'var(--burn)'; // Ensure background remains consistent
+                setTimeout(() => {
+                    content.style.maxHeight = '0'; // Transition to height 0
+                }, 10);
+                panel.classList.remove('active');
+            } else {
+                // Close all other panels
+                document.querySelectorAll('.subteam-panel').forEach(p => {
+                    const pContent = p.querySelector('.subteam-panel-content');
+                    if (pContent) {
+                        pContent.style.transition = 'max-height 0.25s ease';
+                        pContent.style.maxHeight = '0';
+                        pContent.style.background = 'var(--burn)'; // Ensure background remains consistent
+                    }
+                    p.classList.remove('active');
+                });
+
+                // Smoothly open the clicked panel
                 panel.classList.add('active');
+                content.style.transition = 'max-height 0.5s ease';
+                content.style.maxHeight = content.scrollHeight + 'px'; // Ensure full content is displayed
+                content.style.background = 'var(--burn)'; // Ensure background remains consistent
             }
         });
     });

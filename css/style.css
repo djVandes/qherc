@@ -264,7 +264,7 @@ h2, p {
 }
 
 .subteam-panel {
-    background: #66261e;
+    background: var(--burn);
     backdrop-filter: blur(2px);
     color: var(--cream);
     border-radius: 10px;
@@ -313,16 +313,17 @@ h2, p {
     overflow: hidden;
     transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
     opacity: 0;
-    background: var(--burn);
+    background: var(--burn); /* Force background to remain consistent */
     display: flex;
     align-items: flex-start;
     gap: 2em;
+    padding: 0; /* Ensure padding transitions smoothly */
 }
 
 .subteam-panel.active .subteam-panel-content {
     max-height: 100%;
     opacity: 1;
-    padding: 1.5em;
+    padding: 1.5em; 
 }
 
 .subteam-panel-img {
@@ -339,7 +340,7 @@ h2, p {
 
 .subteam-panel-desc {
     flex: 1;
-    height: 300px;
+    max-height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -367,12 +368,11 @@ h2, p {
         font-size: clamp(1em, 1vw + 0.8em, 1.3em);
         color: var(--cream);
         text-align: center;
-        height: 300px;
+        max-height: 100%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        overflow-y: auto;
         padding: 0 2em;
     }
 }
@@ -522,90 +522,6 @@ h2, p {
     font-family: 'Oxygen', bold;
 }
 
-/* achievements  */
-.achievements {
-    background: linear-gradient(to bottom, var(--navy) 0%, rgba(10,16,27,0) 100%), url('../img/hubble.jpg');
-}
-
-
-/* footer */
-.footer {
-    background: var(--black);
-    color: var(--cream);
-    text-align: center;
-    padding: 3em;
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-}
-
-.footer p {
-    margin: 0 0 1em;
-}
-
-.footer__social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1.5em; /* space between icons */
-}
-
-.footer__link {
-    color: var(--cream);
-    font-size: 1.5em; /* Adjust icon size */
-    text-decoration: none;
-    transition: color 300ms ease;
-}
-
-.footer__link:hover {
-    color: var(--acc);
-}
-
-
-
-/* Starry Night Animation */
-.starry-night {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    z-index: 1;
-}
-.stars, .twinkling, .clouds {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-.stars {
-    background: url('../img/style/stars.png') repeat;
-    z-index: 1;
-}
-.twinkling {
-    background: url('../img/style/twinkling.png') repeat;
-    animation: moveTwinkling 200s linear infinite;
-    z-index: 2;
-    opacity: 0.7;
-}
-
-@keyframes moveTwinkling {
-    from { background-position: 0 0; }
-    to { background-position: -10000px 5000px; }
-}
-
-
-/* Ensure starry night layers do not block pointer events */
-.starry-night, .stars, .twinkling {
-    pointer-events: none;
-}
-
-/* Restore pointer events for header and navbar */
-header, .navbar, .header-menu, .header-menu a {
-    pointer-events: auto;
-}
 
 /* IN THE NEWS Section */
 .in-the-news {
@@ -688,6 +604,81 @@ header, .navbar, .header-menu, .header-menu a {
 }
 
 
+/* footer */
+.footer {
+    background: var(--black);
+    color: var(--cream);
+    text-align: center;
+    padding: 3em;
+    font-family: 'Oxygen';
+    font-size: 1rem;
+}
+
+.footer p {
+    margin: 0 0 1em;
+}
+
+.footer__social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5em; /* space between icons */
+}
+
+.footer__link {
+    color: var(--cream);
+    font-size: 1.5em; /* Adjust icon size */
+    text-decoration: none;
+    transition: color 300ms ease;
+}
+
+.footer__link:hover {
+    color: var(--acc);
+}
 
 
 
+/* Starry Night Animation */
+.starry-night {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 1;
+}
+.stars, .twinkling, .clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.stars {
+    background: url('../img/style/stars.png') repeat;
+    z-index: 1;
+}
+.twinkling {
+    background: url('../img/style/twinkling.png') repeat;
+    animation: moveTwinkling 200s linear infinite;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+@keyframes moveTwinkling {
+    from { background-position: 0 0; }
+    to { background-position: -10000px 5000px; }
+}
+
+
+/* Ensure starry night layers do not block pointer events */
+.starry-night, .stars, .twinkling {
+    pointer-events: none;
+}
+
+/* Restore pointer events for header and navbar */
+header, .navbar, .header-menu, .header-menu a {
+    pointer-events: auto;
+}
