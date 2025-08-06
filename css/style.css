@@ -402,16 +402,15 @@ h1, h2, p {
     padding-bottom: 3em;
     z-index: 5;
     font-family: 'Oxygen';  
+
 }
 
 .members-header {
     animation: fadeInUp 1s ease-out forwards;
-
     z-index: 20;
     position: relative;
     text-align: center;
     margin-bottom: 1em;
-
     opacity: 0;
     transform: translateY(50px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -422,25 +421,26 @@ h1, h2, p {
 
 .member-grid {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 1.5em;
-    max-width: 100%;
-    margin: 0 auto;
-    font: 'Oxygen';
+    flex-wrap: wrap; /* Allow items to wrap */
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    gap: 1.5em; /* Add spacing between items */
+    padding: 0; /* Remove padding */
+    margin: 0 auto; /* Center the grid itself */
 }
 
 /* Container for each print item */
 .member__img-container {
-    margin: 1em;
-    text-align: center;
+
+    margin: 0; /* Remove any margins */
+    text-align: center; /* Ensure content is centered */
     transition: transform 500ms ease-in-out;
     flex: 0 1 175px;
     display: flex;
     flex-direction: column;
     align-items: center;
     z-index: 5;
+    
 }
 .member__img-container:hover {
     transform: scale(1.15);
@@ -450,14 +450,18 @@ h1, h2, p {
     text-decoration: none;
     color: inherit;
     display: block;
+    
 }
 
 /* Style for the member image */
 .member__img {
-    max-height: 200px;               /* Set a convenient width */
-    height: 100%;                /* Fit within container */
+
+    width: 200px; /* Set a fixed width */
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Crop the image to fit the dimensions */
     box-shadow: var(--bs);
     border-radius: 5px;         /* Optional: rounded corners */
+
 }
 
 /* Container for text details under the image */
@@ -469,7 +473,7 @@ h1, h2, p {
 }
 
 .member__name{
-    font-size: 2em;
+    font-size: 1.75em;
     display: block;
     margin-bottom: 0.2em;
     font-family: 'Oxygen', bold;
@@ -482,7 +486,7 @@ h1, h2, p {
 .member__description {
     display: block;
     margin-bottom: 0.2em;
-    font-family: 'Oxygen', bold;
+    font-family: 'Oxygen';
 }
 
 
