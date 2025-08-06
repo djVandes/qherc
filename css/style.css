@@ -73,47 +73,6 @@ h1, h2, p {
     color: var(--baby); /* Change color on hover */
 }
 
-/* title */
-.title {
-    /* background: linear-gradient(to bottom, rgb(0, 0, 0), var(--plum)); */
-    padding-bottom: 5em;
-    margin: 0 auto;
-
-}
-
-@media (min-width: 200px){
-    .title {
-        padding-top: 10em;
-        display: grid;
-        grid-template-columns: 40% 60%; /* Two equal columns */
-        grid-column-gap: 2em;
-        grid-template-areas:
-            "title img";
-        margin: 0 auto;
-        align-items: center; /* Center the experiences horizontally */
-    }
-
-    .title__img {
-        grid-area: img;
-        border-radius: 10px; /* Rounded corners */
-
-        z-index: 2;
-        justify-content: center;
-        width: 85%; /* Make the image responsive */
-        height: auto;
-        align-self: start; /* Ensure the image aligns to the top */
-
-    }
-    .title__text {
-        grid-area: title;
-    }
-    .title__text h1 {
-        font-size: 5em; /* Enlarge the h1 text size */
-        margin: 0;
-    }
-}
-
-
 /* Hero Section Styles */
 .hero {
     position: relative;
@@ -121,8 +80,10 @@ h1, h2, p {
     height: 100vh;
     overflow: hidden;
     display: flex;
-    align-items: flex-end;
+    align-items: flex-start;
     justify-content: center;
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */
 }
 
 .hero__stars {
@@ -137,10 +98,10 @@ h1, h2, p {
 .hero__moon {
     position: absolute;
     left: 50%;
-    bottom: -30vw; /* Place moon at the bottom of the screen */
-    transform: translateX(-50%);
-    width: 60%; /* 2/3 of the viewport width */
-    max-width: 240%;
+    top: 50%; /* Position the moon halfway down the viewport */
+    transform: translate(-50%, -50%); /* Center the moon */
+    width: auto; /* 2/3 of the viewport width */
+    max-width: 200%;
     z-index: 4;
     transition: transform 0.2s;
     will-change: transform;
@@ -149,25 +110,64 @@ h1, h2, p {
 
 .hero__content {
     position: absolute;
-    top: 15%;
-    width: 100%;
-    text-align: center;
+    top: 50%; /* Position halfway down the viewport */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for centering */
+    text-align: center; /* Center the text */
     z-index: 5;
+    font-family: 'Oxygen', bold;
+
+    margin: 0; /* Remove any default margin */
+    padding: 0; /* Remove any default padding */    
 }
 
-.hero__content h1 {
-    font-size: 3em; /* Enlarge the h1 text size */
-    color: var(--cream);
-    animation: fadeInUp 1s ease-out forwards;
-}
+
 .hero__content h2{
+
     font-size: 2em; /* Enlarge the h1 text size */
-    font-family: 'Oxygen';
+    color: var(--black);
+
+    font-family: 'Oxygen', bold;
+    margin: 0; /* Remove any default margin */
+    padding: 1em; /* Remove any default padding */
 
 }
 
-.hero__content h1:hover,h2:hover {
-    color: var(--baby);
+.hero__header{
+    font-family: 'Oxygen', bold;
+    font-size: 3em; /* Enlarge the h1 text size */
+
+    animation: fadeInUp 1s ease-out forwards;
+    color: var(--black);
+
+    position: relative;
+    text-align: center;
+    margin-bottom: 2em;
+
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+
+.hero__header:hover, .hero__content h2:hover {
+    color: var(--plum);
+}
+
+.hero__scroll-arrow {
+    position: absolute;
+    bottom: -10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: var(--black);
+    animation: bounce 2s infinite;
+}
+
+.hero__scroll-arrow a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .button {
@@ -679,5 +679,18 @@ header, .navbar, .header-menu, .header-menu a {
     }
     to {
         opacity: 1;
+    }
+}
+
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
     }
 }

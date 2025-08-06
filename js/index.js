@@ -63,5 +63,5 @@ window.addEventListener('scroll', function() {
     if (!moon) return;
     const scrollY = window.scrollY;
     // Move the moon up at twice the scroll speed
-    moon.style.transform = `translate(-50%, ${-3 * scrollY}px)`;
+    moon.style.transform = `translate(-50%, calc(-50% - ${scrollY * 2}px))`;
 });
