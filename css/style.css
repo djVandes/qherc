@@ -437,6 +437,7 @@ h2, p {
 /* members */
 .members {
     padding-top: 6em;
+    padding-bottom: 3em;
     z-index: 5;
     font-family: 'Oxygen';  
 }
@@ -447,7 +448,7 @@ h2, p {
     z-index: 20;
     position: relative;
     text-align: center;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 
     opacity: 0;
     transform: translateY(50px);
@@ -543,7 +544,7 @@ h2, p {
 .in-the-news__header {
     font-size: 3em;
     color: var(--cream);
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     animation: fadeInUp 1s ease-out forwards;
 }
 
