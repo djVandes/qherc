@@ -188,10 +188,9 @@ h1, h2, p {
     background-color: var(--cream); /* Button color */
     color: var(--navy); /* Text color */
 }
-
 .subteams {
     padding-top: 5em;
-    padding-bottom: 1em;
+    padding-bottom: 4em;
     background: linear-gradient(to bottom, 
         rgb(0, 0, 0),
         rgba(29, 31, 82, 0.3),
@@ -199,7 +198,7 @@ h1, h2, p {
     ), url('../img/hubble.jpg');
 
     background-size: cover;
-   background-attachment: fixed;
+    background-attachment: fixed;
     text-align: center;
     align-items: center; /* Center the experiences horizontally */
     font-family: 'Oxygen', bold;  
@@ -207,66 +206,68 @@ h1, h2, p {
 
 .subteam__header{
     animation: fadeInUp 1s ease-out forwards;
-    
-    position: relative;
     text-align: center;
-    margin-bottom: 2em;
-
-    align-items: center;
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.subteam__header.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.subteam__header {
-    text-align: center;
+    margin-bottom: 1em;
     font-size: 3em; /* Enlarge the h1 text size */
 }
 
 /* Collapsible Subteam Styles */
 .subteams-collapsible {
-    max-width: 80%;
+    max-width: 70%;
     margin: 0 auto;
 }
 
 .subteam-panel {
-    background: var(--burn);
-    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.263); /* Changed to black for collapsed state */
     color: var(--cream);
-    border-radius: 10px;
+    border-radius: 6px;
     margin-bottom: 1em;
     box-shadow: var(--bs);
     overflow: hidden;
-    transition: box-shadow 0.3s;
-}
-
-.subteam-panel.active {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    transition: box-shadow 0.3s, background-color 0.3s ease;
 }
 
 .subteam-panel-header {
     cursor: pointer;
     padding: .5em 1em;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Oxygen', bold;
-    background: var(--acc);
+    background: rgba(0, 0, 0, 0.45); /* Black background for collapsed headers */
     color: var(--cream);
-    border: none;
+    border: 2px solid transparent; /* Always have border to prevent jumping */
     outline: none;
     display: flex;
     align-items: center;
     justify-content: space-between;
     position: relative;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, background-color 0.3s ease;
+}
+
+/* Stylish moving blue outline on hover */
+.subteam-panel-header:hover {
+    color: var(--cream);
+    border-color: #1262a4; /* Fade in border color */
+    animation: pulseBlue 2s infinite;
+}
+
+/* Pulsing blue outline animation */
+@keyframes pulseBlue {
+    0% {
+        border-color: #4dabf7;
+        box-shadow: 0 0 15px rgba(77, 171, 247, 0.4);
+    }
+    50% {
+        border-color: #74c0fc;
+        box-shadow: 0 0 25px rgba(116, 192, 252, 0.6);
+    }
+    100% {
+        border-color: #4dabf7;
+        box-shadow: 0 0 15px rgba(77, 171, 247, 0.4);
+    }
 }
 
 .subteam-panel-header::after {
     content: '+';
-    font-size: 1em;
     transition: transform 0.3s ease;
 }
 
@@ -274,9 +275,11 @@ h1, h2, p {
     transform: rotate(45deg);
 }
 
-.subteam-panel-header:hover {
-    background: var(--cream);
-    color: var(--plum);
+/* Header styling for expanded panels */
+.subteam-panel.active .subteam-panel-header {
+    background: #0000005b; /* Match the expanded content background */
+    border-color: #1262a4; /* Fade in border color */
+    animation: pulseBlue 2s infinite;
 }
 
 .subteam-panel-content {
@@ -284,79 +287,76 @@ h1, h2, p {
     overflow: hidden;
     transition: max-height 0.5s ease, opacity 0.5s ease, padding 0.5s ease;
     opacity: 0;
-    background: var(--burn); /* Force background to remain consistent */
+    background: rgba(0, 0, 0, 0.283); /* Force background to remain consistent */
     display: flex;
+    flex-direction: row; /* Image left, text right on desktop */
     align-items: flex-start;
     gap: 2em;
     padding: 0; /* Ensure padding transitions smoothly */
 }
 
 .subteam-panel.active .subteam-panel-content {
-    max-height: 100%;
+    max-height: 100%; /* Use a specific pixel value that's larger than your content */
     opacity: 1;
     padding: 1.5em; 
 }
 
-.subteam-panel-img {
-    flex-shrink: 0;
-    justify-content: center;
-    border-radius: 10px;
-    box-shadow: var(--bs);
-    max-height: 300px;
-    width: auto;
-    object-fit: cover;
-    display: flex;
-    align-items: center;
-}
 
 .subteam-panel-desc {
-    flex: 1;
-    max-height: 100%;
+    flex: 1; /* Take remaining 60% space */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-@media (max-width: 900px) {
-    .subteam-panel.active .subteam-panel-content {
-        flex-direction: column;
-        align-items: center;
-        padding-top: 2em;
-        padding-left: 1em;
-        padding-right: 1em;
-        grid-template-areas:
-            "img desc";
-        margin: 0 auto;
-    }
-    
-    .subteam-panel-img {
-        max-width: auto;
-        height: 300px;
-        object-fit: cover;
-    }
-    .subteam-panel-desc {
-        font-size: clamp(1em, 1vw + 0.8em, 1.3em);
-        color: var(--cream);
-        text-align: center;
-        max-height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0 2em;
-    }
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    min-width: 0; /* Prevent overflow */
 }
 
 .subteam-panel-desc h3 {
-    font-size: clamp(1.5em, 2vw + 0.8em, 2.5em);
+    font-size: 1.5em;
     line-height: 1.2;
-    text-align: center;
+    text-align: left;
     color: var(--cream);
+    margin-bottom: 1em;
 }
 
 .subteam-panel-desc li {
     color: var(--cream);
+}
+
+.subteam-panel-desc p {
+    font-size: clamp(1em, 1vw + 0.8em, 1.3em);
+    color: var(--cream);
+    text-align: left;
+    line-height: 1.5;
+}
+
+/* Mobile responsive design */
+@media (max-width: 900px) {
+    .subteam-panel-content {
+        flex-direction: column; /* Stack image on top of text */
+        align-items: center;
+        min-height: 100%;
+    }
+    
+    .subteam-panel.active .subteam-panel-content {
+        padding: 2em 1em 1.5em 1em;
+    }
+    
+    .subteam-panel-desc {
+        align-items: center;
+        text-align: center;
+        padding: 0;
+    }
+    
+    .subteam-panel-desc h3 {
+        text-align: center;
+    }
+    
+    .subteam-panel-desc p {
+        text-align: center;
+        font-size: clamp(1em, 1vw + 0.8em, 1.3em);
+    }
 }
 
 #discord{
@@ -431,7 +431,6 @@ h1, h2, p {
 
 /* Container for each print item */
 .member__img-container {
-
     margin: 0; /* Remove any margins */
     text-align: center; /* Ensure content is centered */
     transition: transform 500ms ease-in-out;
@@ -440,8 +439,8 @@ h1, h2, p {
     flex-direction: column;
     align-items: center;
     z-index: 5;
-    
 }
+
 .member__img-container:hover {
     transform: scale(1.15);
 }
@@ -455,13 +454,11 @@ h1, h2, p {
 
 /* Style for the member image */
 .member__img {
-
     width: 200px; /* Set a fixed width */
     height: 200px; /* Set a fixed height */
     object-fit: cover; /* Crop the image to fit the dimensions */
     box-shadow: var(--bs);
     border-radius: 5px;         /* Optional: rounded corners */
-
 }
 
 /* Container for text details under the image */
@@ -524,9 +521,7 @@ h1, h2, p {
 }
 
 .in-the-news__item {
-    background: var(--burn);
     border-radius: 10px;
-    box-shadow: var(--bs);
     overflow: hidden;
     transition: background 0.3s ease, transform 0.3s ease;
     cursor: pointer;
@@ -535,12 +530,15 @@ h1, h2, p {
     max-width: calc(33.333% - 2em);
     min-width: 250px;
     text-decoration: none;
-
+    background: #00000079; /* Match the expanded content background */
+    border: 2px solid transparent; /* Always have border to prevent jumping */
 }
 
 .in-the-news__item:hover {
-    background: var(--acc);
     transform: scale(1.05);
+    border-color: #1262a4;
+    animation: pulseBlue 2s infinite;
+
 }
 
 .in-the-news__item img {
