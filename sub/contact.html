@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <link rel="shortcut icon" type="image/png" href="../img/moon.png"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="header-menu">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#mission">Mission</a></li>
+                <li><a href="../index.html#team">Team</a></li>
+                <li><a href="../index.html#news">News</a></li>
+                <li><a href="../index.html#sponsors">Sponsors</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="https://discord.gg/NtXCsjFm">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero__background">
+            <!-- Starry night background for consistent look -->
+            <div class="starry-night">
+                <div class="stars"></div>
+                <div class="twinkling"></div>
+            </div>
+        </div>
+        <div class="hero__content">
+            <div class="contact-container">
+                <h2>Contact Us</h2>
+                <p class="contact-sub">Looking to connect with us? <br>Use the form below and we will reply to you as soon as possible.</p>
+
+                <form action="mailto:d.zhao@queensu.ca" method="GET" enctype="text/plain" class="contact-form">
+                    <label for="full-name">Full name</label>
+                    <input type="text" id="full-name" name="name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="body" rows="6" required></textarea>
+
+                    <div class="contact-actions">
+                        <button type="submit" class="button">Send</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 by Queen's Human Exploration Rover Competition Team</p>
+    </footer>
+
+</body>
+
+</html>

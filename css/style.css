@@ -7,8 +7,7 @@ html {
     --black: #000000;  
     --navy: #0a101b;         
     --plum: #1d1f52;      
-    --acc: #7a1e2e;
-    --burn: #521821;
+    --acc: #1262a4;
     --cream: #ead7ce;  
     --baby: #bbc5df; /* Light cream for contrast */    
 
@@ -601,6 +600,86 @@ h1, h2, p {
     color: var(--acc);
 }
 
+/* Contact form */
+.contact-section {
+    padding: 4em 1em;
+    text-align: center;
+}
+/* On wide screens, span about four-fifths of the viewport width; keep a reasonable max-width */
+.contact-container {
+    width: 90%;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.03);
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: var(--bs);
+}
+.contact-container h2 {
+    font-size: 2em;
+    color: var(--cream);
+    font-family: 'Oxygen';
+}
+.contact-sub {
+    color: var(--baby);
+    font-family: 'Oxygen';
+    margin-bottom: 3em;
+}
+.contact-form label {
+    display: block;
+    text-align: left;
+    color: var(--cream);
+    margin: 0.5em 0 0.25em;
+    font-weight: 700;
+    font-family: 'Oxygen';
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 0.75em;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.02);
+    color: var(--cream);
+    font-family: 'Oxygen';
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255,255,255,0.5);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--acc);
+    box-shadow: 0 0 0 6px rgba(122,30,46,0.06);
+}
+.contact-actions {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.contact-actions .button {
+    background: #333333; /* dark grey */
+    color: #ffffff; /* white text */
+    border-radius: 8px;
+    padding: 0.2em 0.7em;
+    border: none;
+    font-family: 'Oxygen';
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: background 200ms ease, transform 200ms ease;
+    display: inline-block;
+}
+
+.contact-actions .button:hover {
+    background: var(--acc);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+    .contact-actions { text-align: center; }
+    .contact-container { padding: 1.25em; }
+}
 
 
 /* Starry Night Animation */
