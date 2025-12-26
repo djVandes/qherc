@@ -69,6 +69,36 @@
         <p>&copy; 2025 by Queen's Human Exploration Rover Competition Team</p>
     </footer>
 
+    <script>
+        (function() {
+            const form = document.querySelector('.contact-form');
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const to = 'd.zhao@queensu.ca';
+                const name = (document.getElementById('full-name') || {}).value || '';
+                const email = (document.getElementById('email') || {}).value || '';
+                const subject = (document.getElementById('subject') || {}).value || '';
+                const message = (document.getElementById('message') || {}).value || '';
+
+                const bodyLines = [];
+                if (name || email) bodyLines.push(`From: ${name}${email ? ' <' + email + '>' : ''}`);
+                bodyLines.push('');
+                bodyLines.push(message);
+
+                const body = bodyLines.join('\n');
+
+                // Use encodeURIComponent so spaces become %20 (not '+') and other characters are safely encoded
+                const mailto = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+                // Open default mail client with composed message
+                window.location.href = mailto;
+            });
+        })();
+    </script>
+
 </body>
 
 </html>
