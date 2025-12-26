@@ -106,6 +106,12 @@ h1, h2, p {
     will-change: transform;
     pointer-events: none;
 }
+.page-banner {
+    width: 100%;
+    height: 20vh; /* 1/5 of the viewport height */
+    background: url('../img/design.PNG') center/cover no-repeat;
+    display: block;
+}
 
 .hero__content {
     position: absolute;
@@ -296,7 +302,6 @@ h1, h2, p {
     padding: 1.5em; 
 }
 
-
 .subteam-panel-desc {
     flex: 1; /* Take remaining 60% space */
     display: flex;
@@ -353,11 +358,6 @@ h1, h2, p {
         font-size: clamp(1em, 1vw + 0.8em, 1.3em);
     }
 }
-
-#discord{
-    margin-bottom: 2em;
-}
-
 
 /* sponsors */
 .sponsors-logos p {
@@ -770,65 +770,7 @@ h1, h2, p {
     transform: scale(1.05);
 }
 
-/* Contact form */
-.contact-section {
-    padding: 4em 1em;
-    text-align: center;
-}
-/* On wide screens, use 90% of the viewport width (capped) so it respects the screen size */
-.contact-container {
-    background: rgba(255,255,255,0.03);
-    padding: 2em;
-    border-radius: 8px;
-    box-shadow: var(--bs);
-    box-sizing: border-box; /* ensure padding included in width */
-} 
-.contact-container h2 {
-    font-size: 2em;
-    color: var(--cream);
-    font-family: 'Oxygen';
-}
-.contact-sub {
-    color: var(--baby);
-    margin-bottom: 3em;
-}
-.contact-form label {
-    display: block;
-    text-align: left;
-    margin: 0.5em 0 0.25em;
-}
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 0.75em;
-    border-radius: 6px;
-    border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(255,255,255,0.02);
-    color: var(--cream);
-    box-sizing: border-box; /* ensure padding doesn't cause overflow on small screens */
-    max-width: 100%;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: var(--acc);
-}
-
-/* Give space between message textarea and the Send button */
-.contact-actions {
-    text-align: center;
-    margin-top: 1.5em;
-}
-
-.contact-actions .button {
-    padding: 0.5em 0.9em;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    transition: background 200ms ease, transform 200ms ease;
-    display: inline-block;
-}
+/* Contact styles moved to css/contact.css */
 
 /* Starry Night Animation */
 .starry-night {
