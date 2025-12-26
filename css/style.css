@@ -790,16 +790,12 @@ h1, h2, p {
 }
 .contact-sub {
     color: var(--baby);
-    font-family: 'Oxygen';
     margin-bottom: 3em;
 }
 .contact-form label {
     display: block;
     text-align: left;
-    color: var(--cream);
     margin: 0.5em 0 0.25em;
-    font-weight: 700;
-    font-family: 'Oxygen';
 }
 .contact-form input,
 .contact-form textarea {
@@ -809,51 +805,36 @@ h1, h2, p {
     border: 1px solid rgba(255,255,255,0.08);
     background: rgba(255,255,255,0.02);
     color: var(--cream);
-    font-family: 'Oxygen';
     box-sizing: border-box; /* ensure padding doesn't cause overflow on small screens */
     max-width: 100%;
 }
 
-/* Ensure container uses border-box so inner spacing behaves as expected */
-.contact-container { box-sizing: border-box; }
-
-/* Prevent the submit button from stretching to the container edge on narrow viewports */
-.contact-actions .button { box-sizing: border-box; max-width: 100%; }
-.contact-form input::placeholder,
-.contact-form textarea::placeholder {
-    color: rgba(255,255,255,0.5);
-}
 .contact-form input:focus,
 .contact-form textarea:focus {
     outline: none;
     border-color: var(--acc);
-    box-shadow: 0 0 0 6px rgba(122,30,46,0.06);
 }
+
+/* Give space between message textarea and the Send button */
 .contact-actions {
     text-align: center;
-    margin-top: 1em;
+    margin-top: 1.5em;
 }
 
 .contact-actions .button {
-    color: #ffffff; /* white text */
-    border-radius: 8px;
     padding: 0.5em 0.9em;
     border: none;
-    font-family: 'Oxygen';
     font-size: 1.5em;
     cursor: pointer;
     transition: background 200ms ease, transform 200ms ease;
     display: inline-block;
 }
 
-
 /* Starry Night Animation */
 .starry-night {
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
+    width: 100%; height: 100%;
+    top: 0; left: 0;
     overflow: hidden;
     z-index: 1;
 }
@@ -880,7 +861,6 @@ h1, h2, p {
     from { background-position: 0 0; }
     to { background-position: -10000px 5000px; }
 }
-
 
 /* Ensure starry night layers do not block pointer events */
 .starry-night, .stars, .twinkling {

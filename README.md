@@ -10,7 +10,6 @@ List placements
 * Internships landed by members
 * Add link to sponsorship package
 
-
 ## Mission Subpages
 ### Outreach
 * Photos and locations of external workshops
@@ -20,11 +19,8 @@ List placements
 * Wheel capstone
 * RC Capstone - add 3d of cad
 
-
-
 ### News Updates
 * DJ & Brandon September soft launch
-* Hayley Instagram post
 
 ## UI Toggles
 * Make logo for QHERC
