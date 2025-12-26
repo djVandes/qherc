@@ -1,12 +1,4 @@
 # QHERC Homepage
-QHERC Website
-
-## Features
-* Mission
-* Members List
-* Sponsors List
-* In the news
-
 
 ## Content Updates
 ### Partners and Sponsors
@@ -16,25 +8,24 @@ Create tier list
 
 List placements
 * Internships landed by members
+* Add link to sponsorship package
 
-Add link to sponsorship package
 
+## Mission Subpages
 ### Outreach
-* CONTACT US - fname lname, email, subject, message submit - at the bottom of each page
 * Photos and locations of external workshops
+
+### Design Teams
+* Competition - add 3d print from past year
+* Wheel capstone
+* RC Capstone - add 3d of cad
+
+
 
 ### News Updates
 * DJ & Brandon September soft launch
 * Hayley Instagram post
 
-### Design Teams
-* Competition - add 3d print from past year
-* Wheel capstone 
-* RC Capstone - add 3d of cad
-
-
 ## UI Toggles
-* Remove highlight on hover
 * Make logo for QHERC
-
 

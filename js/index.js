@@ -55,6 +55,78 @@ document.addEventListener("DOMContentLoaded", function() {
     if (subteamHeader) {
         observer.observe(subteamHeader);
     }
+
+    // Initialize IN THE NEWS carousel (responsive number visible, arrows, touch)
+    function initNewsCarousel() {
+        const carousels = document.querySelectorAll('.in-the-news__carousel');
+        carousels.forEach(carousel => {
+            const viewport = carousel.querySelector('.in-the-news__viewport');
+            const track = carousel.querySelector('.in-the-news__track');
+            const items = Array.from(track.children);
+            const btnPrev = carousel.querySelector('.carousel__btn--prev');
+            const btnNext = carousel.querySelector('.carousel__btn--next');
+            let index = 0;
+            let itemsPerView = 3;
+            let itemWidth = 0;
+            const gapPx = parseFloat(getComputedStyle(track).gap) || 32;
+
+            function getItemsPerView() {
+                const w = window.innerWidth;
+                if (w < 600) return 1;
+                if (w < 900) return 2;
+                return 3;
+            }
+
+            function resize() {
+                itemsPerView = Math.min(getItemsPerView(), items.length);
+                const vw = viewport.clientWidth;
+                itemWidth = (vw - gapPx * (itemsPerView - 1)) / itemsPerView;
+                items.forEach(i => { i.style.minWidth = itemWidth + 'px'; });
+                index = Math.min(index, Math.max(0, items.length - itemsPerView));
+                update();
+            }
+
+            function update() {
+                const translate = index * (itemWidth + gapPx);
+                track.style.transform = `translateX(-${translate}px)`;
+                btnPrev.disabled = index === 0;
+                btnNext.disabled = index >= items.length - itemsPerView;
+            }
+
+            btnPrev.addEventListener('click', () => {
+                index = Math.max(0, index - 1);
+                update();
+            });
+            btnNext.addEventListener('click', () => {
+                index = Math.min(items.length - itemsPerView, index + 1);
+                update();
+            });
+
+            // Touch / swipe support (basic)
+            let startX = 0;
+            let isTouch = false;
+            viewport.addEventListener('touchstart', (e) => {
+                if (e.touches && e.touches[0]) {
+                    startX = e.touches[0].clientX;
+                    isTouch = true;
+                }
+            }, { passive: true });
+            viewport.addEventListener('touchend', (e) => {
+                if (!isTouch) return;
+                const endX = e.changedTouches[0].clientX;
+                const dx = endX - startX;
+                if (dx > 40) btnPrev.click();
+                else if (dx < -40) btnNext.click();
+                isTouch = false;
+            });
+
+            window.addEventListener('resize', resize);
+            // Initial sizing
+            resize();
+        });
+    }
+
+    initNewsCarousel();
 });
 
 

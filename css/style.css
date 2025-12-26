@@ -530,11 +530,10 @@ h1, h2, p {
 }
 
 .in-the-news__item:hover {
-    transform: scale(1.05);
+    /* No scaling to avoid being clipped by the carousel viewport */
     border-color: #1262a4;
     animation: pulseBlue 2s infinite;
-
-}
+} 
 
 .in-the-news__item img {
     width: 90%;
@@ -563,6 +562,149 @@ h1, h2, p {
     color: inherit;
 }
 
+/* Mission Grid (same layout as in-the-news but separate class) */
+.mission__grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.mission__item {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    flex: 1 1 calc(33.333% - 2em);
+    max-width: calc(33.333% - 2em);
+    min-width: 250px;
+    text-decoration: none;
+    background: #00000079;
+    border: 2px solid transparent;
+}
+
+.mission__item:hover {
+    transform: scale(1.05);
+    border-color: #1262a4;
+    animation: pulseBlue 2s infinite;
+}
+
+.mission__item img {
+    width: 90%;
+    height: auto;
+    margin-top: .8em;
+    border-radius: 10px;
+}
+
+.mission__item h2 {
+    font-size: 1.5em;
+    color: var(--cream);
+    margin: 1em 0 0.5em;
+}
+
+.mission__item p {
+    font-size: 1em;
+    color: var(--cream);
+    margin: 0 1em 1em;
+}
+
+/* Carousel styles for IN THE NEWS */
+.in-the-news__carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.in-the-news__viewport {
+    overflow: hidden;
+    flex: 1 1 auto;
+}
+
+.in-the-news__track {
+    display: flex;
+    gap: 2em;
+    transition: transform 0.45s cubic-bezier(.22,.98,.43,1);
+    will-change: transform;
+}
+.carousel__btn {
+    background: transparent; /* no box background */
+    color: var(--cream);           /* white arrow */
+    border: none;
+    padding: 0.2rem 0.6rem;   /* keep tappable area */
+    font-size: 2.4rem;       /* larger arrow */
+    line-height: 1;
+    border-radius: 0;
+    cursor: pointer;
+    opacity: 1;            /* 60% translucent by default */
+    transition: opacity 150ms ease, transform 150ms ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+}
+
+.carousel__btn:hover,
+.carousel__btn:focus {
+    opacity: 1; /* fully visible on hover/focus */
+    transform: scale(1.3);
+}
+
+.carousel__btn[disabled] {
+    opacity: 0.35;
+}
+
+/* Reuse item styles but ensure items are sized by JS */
+.in-the-news__item {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: background 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+    flex: 0 0 auto; /* width will be set via JS for a sliding effect */
+    min-width: 250px;
+    box-sizing: border-box; /* include padding within min-width so padding doesn't grow the visible slot */
+    padding: 0.6rem 0.8rem; /* visual breathing room so items look slightly smaller */
+    text-decoration: none;
+    background: #00000079;
+    border: 2px solid transparent;
+}
+
+.in-the-news__item:hover {
+    /* No scaling to avoid being clipped by the carousel viewport */
+    border-color: #1262a4;
+    animation: pulseBlue 2s infinite;
+}
+
+.in-the-news__item img {
+    width: 90%;
+    height: auto;
+    margin-top: .8em;
+    border-radius: 10px;
+}
+
+.in-the-news__item h2 {
+    font-size: 1.2em;
+    color: var(--cream);
+    margin: 0.8em 0 0.4em;
+}
+
+.in-the-news__item p {
+    font-size: 0.95em;
+    color: var(--cream);
+    margin: 0 1em 1em;
+}
+
+/* Responsive visible counts (handled via JS, but provide some spacing rules) */
+@media (max-width: 600px) {
+    .carousel__btn { display: inline-flex; padding: 0.4rem 0.6rem; }
+}
 
 /* footer */
 .footer {
@@ -633,15 +775,14 @@ h1, h2, p {
     padding: 4em 1em;
     text-align: center;
 }
-/* On wide screens, span about four-fifths of the viewport width; keep a reasonable max-width */
+/* On wide screens, use 90% of the viewport width (capped) so it respects the screen size */
 .contact-container {
-    width: 90%;
-    margin: 0 auto;
     background: rgba(255,255,255,0.03);
     padding: 2em;
     border-radius: 8px;
     box-shadow: var(--bs);
-}
+    box-sizing: border-box; /* ensure padding included in width */
+} 
 .contact-container h2 {
     font-size: 2em;
     color: var(--cream);
@@ -669,7 +810,15 @@ h1, h2, p {
     background: rgba(255,255,255,0.02);
     color: var(--cream);
     font-family: 'Oxygen';
+    box-sizing: border-box; /* ensure padding doesn't cause overflow on small screens */
+    max-width: 100%;
 }
+
+/* Ensure container uses border-box so inner spacing behaves as expected */
+.contact-container { box-sizing: border-box; }
+
+/* Prevent the submit button from stretching to the container edge on narrow viewports */
+.contact-actions .button { box-sizing: border-box; max-width: 100%; }
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
     color: rgba(255,255,255,0.5);
@@ -686,7 +835,6 @@ h1, h2, p {
 }
 
 .contact-actions .button {
-    background: #242323; /* dark grey */
     color: #ffffff; /* white text */
     border-radius: 8px;
     padding: 0.5em 0.9em;
@@ -696,17 +844,6 @@ h1, h2, p {
     cursor: pointer;
     transition: background 200ms ease, transform 200ms ease;
     display: inline-block;
-}
-
-.contact-actions .button:hover {
-    background: var(--acc);
-    color: #ffffff;
-    transform: scale(1.05);
-}
-
-@media (max-width: 600px) {
-    .contact-actions { text-align: center; }
-    .contact-container { padding: 1.25em; }
 }
 
 

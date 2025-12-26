@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<!-- Title -->
+<!-- navbar -->
 <body>
     <header>
         <nav class="navbar">
@@ -32,10 +32,9 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- header -->
     <section class="hero" id="home">
         <div class="hero__background">
-            <!-- Starry night background moved here for correct stacking -->
             <div class="starry-night">
                 <div class="stars"></div>
                 <div class="twinkling"></div>
@@ -62,83 +61,23 @@
             MISSION OBJECTIVES
         </div>
         
-        <div class="subteams-collapsible">
-            <div class="subteam-panel" id="outreach-panel">
-                <div class="subteam-panel-header">OUTREACH</div>
-                <div class="subteam-panel-content">
-                    <div class="subteam-panel-desc">
-                        <p>
-                            Our Outreach team is dedicated to inspiring the next generation of 
-                            engineers and scientists. We engage with local schools, organize 
-                            workshops, and participate in community events to share our passion 
-                            for space exploration and engineering. Through these initiatives, 
-                            we aim to promote STEM education and create opportunities for 
-                            hands-on learning experiences.
-                        </p>
-                        <h3>
-                            Queen's Design Fairs
-                            <br>Highschools across Ontario
-                            <br>Scout and Cadet Camps
-                        </h3>
-                    </div>
-                </div>
-            </div>
+        <div class="mission__grid">
+            <a href="sub/outreach.html" class="mission__item">
+                <img src="img/outreach.JPG" alt="Outreach">
+                <h2>OUTREACH</h2>
+                <p>Inspiring future engineers through outreach, workshops, and community engagement.</p>
+            </a>
+            <a href="sub/design.html" class="mission__item">
+                <img src="img/design.PNG" alt="Design">
+                <h2>DESIGN</h2>
+                <p>Innovative rover design spanning mechanical, electrical, and systems engineering.</p>
+            </a>
+            <a href="sub/race.html" class="mission__item">
+                <img src="img/race.JPG" alt="Compete">
+                <h2>COMPETE</h2>
+                <p>Preparing for competition success at the NASA Human Exploration Rover Challenge.</p>
+            </a>
 
-            <div class="subteam-panel" id="design-panel">
-                <div class="subteam-panel-header">DESIGN</div>
-                <div class="subteam-panel-content">
-                    <div class="subteam-panel-desc">
-                        <p>
-                            We focus on innovative solutions to traverse HERC's obstacle course, which changes annually. 
-                            This involves everything from initial concept sketches to technical documentation for both
-                            mechanical and electrical systems, pushing the boundary of what's been done in space exploration vehicle design.
-                        </p>
-                        <h3>
-                            CAD Structural Modeling
-                            <br>PCB Design and printing
-                        </h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subteam-panel" id="build-panel">
-                <div class="subteam-panel-header">BUILD</div>
-                <div class="subteam-panel-content">
-                    <div class="subteam-panel-desc">
-                        <p>
-                            Our Build team transforms designs into reality through 
-                            fabrication and assembly. Using a combination of traditional and modern 
-                            manufacturing techniques, we construct each component of the rover with 
-                            precision and attention to detail, ensuring durability and performance 
-                            in challenging conditions.
-                        </p>
-                        <h3>
-                            Aluminum Sand Casting
-                            <br>Bike Assembly
-                            <br>RC Rover Assembly
-                        </h3>
-                    </div>
-                </div>
-            </div>
-
-            <div class="subteam-panel" id="race-panel">
-                <div class="subteam-panel-header">RACE</div>
-                <div class="subteam-panel-content">
-                    <div class="subteam-panel-desc">
-                        <p>
-                            The Race team
-                            analyzes course conditions and designs the rover to maximize our success in the NASA Human Exploration Rover 
-                            Challenge. Our team ensures both pilots are well-prepared for the physical 
-                            and technical demands of the competition.
-                        </p>
-                        <h3>
-                        Traversing Rough Terrains
-                        <br>Obstacle Avoidance
-                        <br>Remote Control Steering
-                        </h3>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- <br><br><a href="https://discord.gg/NtXCsjFm" class="button" id="discord"><strong>Join our Discord</strong></a> -->
@@ -216,22 +155,41 @@
         <div class="in-the-news__header">
             IN THE NEWS
         </div>
-        <div class="in-the-news__grid">
-            <a href="https://www.linkedin.com/posts/queen-s-university-herc-design-team_kinectrics-qherc-nasa-activity-7356362806754992128-pNFS" class="in-the-news__item">
-                <img src="img/news/kin.png" alt="Race News">
-                <h2>Kinectrics join the Crew!</h2>
-                <p>Support from Kinecrics Materials and Major Components division makes this team possible.</p>
-            </a>
-            <a href="https://www.linkedin.com" class="in-the-news__item">
-                <img src="img/news/race.png" alt="Race News">
-                <h2>First Canadian Team at NASA Challenge</h2>
-                <p>Our Race Team achieved remarkable success winning Inginuity and Pit Crew awards.</p>
-            </a>
-            <a href="https://www.queensjournal.ca/red-rover-red-rover-nasa-calls-queens-students-over/" class="in-the-news__item">
-                <img src="img/news/journal.png" alt="Race News">
-                <h2>NASA calls Queen's students over</h2>
-                <p>Nine engineering students gear up for NASA's Human Exploration Rover Challenge.</p>
-            </a>
+        <div class="in-the-news__carousel">
+            <button class="carousel__btn carousel__btn--prev" aria-label="Previous">‹</button>
+            <div class="in-the-news__viewport">
+                <div class="in-the-news__track">
+                    <a href="https://www.instagram.com/p/DQzSuIPkfG9/" class="in-the-news__item">
+                        <img src="img/news/back.jpg" alt="Journal article">
+                        <h2>Q-HERC is headed back to NASA! </h2>
+                        <p>Our RC team is thrilled to represent Queen’s University and Canada at the 2026 NASA Human Exploration Rover Challenge.</p>
+                    </a>
+                    <a href="https://www.instagram.com/p/DSfN2GJjuSA/?img_index=1" class="in-the-news__item">
+                        <img src="img/news/dean.jpg" alt="Smith Engineering donation">
+                        <h2>Smith Engineering Donates to HERC</h2>
+                        <p>Smith Engineering provides generous support to advance our team's mission.</p>
+                    </a>
+                    <a href="https://www.linkedin.com/posts/queen-s-university-herc-design-team_kinectrics-qherc-nasa-activity-7356362806754992128-pNFS" class="in-the-news__item">
+                        <img src="img/news/kin.png" alt="Kinectrics join the Crew">
+                        <h2>Kinectrics join the Crew!</h2>
+                        <p>Support from Kinecrics Materials and Major Components division makes this team possible.</p>
+                    </a>
+                    <a href="https://www.linkedin.com" class="in-the-news__item">
+                        <img src="img/news/race.png" alt="Race News">
+                        <h2>First Canadian Team at NASA Challenge</h2>
+                        <p>Our Race Team achieved remarkable success winning Inginuity and Pit Crew awards.</p>
+                    </a>
+                    <a href="https://www.queensjournal.ca/red-rover-red-rover-nasa-calls-queens-students-over/" class="in-the-news__item">
+                        <img src="img/news/journal.png" alt="Journal article">
+                        <h2>NASA calls Queen's students over</h2>
+                        <p>Nine engineering students gear up for NASA's Human Exploration Rover Challenge.</p>
+                    </a>
+
+
+                    
+                </div>
+            </div>
+            <button class="carousel__btn carousel__btn--next" aria-label="Next">›</button>
         </div>
     </section>
 
