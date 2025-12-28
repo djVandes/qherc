@@ -40,21 +40,21 @@
     gap: 1rem;
     align-items: start;
 }
-.pic {
+.compete-card {
     overflow: hidden;
     transition: transform 180ms ease, box-shadow 180ms ease;
     display: flex;
     flex-direction: column;
     z-index: 5;
 }
-.pic img {
+.compete-card img {
     width: 400px;
     height: 400px;
     object-fit: cover;
     display: block;
     cursor: pointer;
 }
-.pic .caption {
+.compete-card .caption {
     padding: 0.6rem 0.9rem;
     color: var(--cream);
     font-size: 0.95rem;
@@ -62,16 +62,16 @@
 
 /* Responsive tweaks */
 @media (max-width: 700px) {
-    .pic img { height: 160px; }
+    .compete-card img { height: 160px; }
     .compete-title { font-size: 1.6rem; }
 }
 
 /* Hide inline captions on thumbnails (we show them in the lightbox) */
-.pic .caption { display: none; }
+.compete-card .caption { display: none; }
 
 /* Ensure gallery sits above starry-night overlays and is clearly legible */
 .compete-gallery { position: relative; z-index: 12; }
-.pic { position: relative; z-index: 13; background: rgba(0,0,0,0.9); }
+.compete-card { position: relative; z-index: 13; background: rgba(0,0,0,0.9); }
 
 /* Lightbox / overlay styles */
 .lightbox { display: flex; opacity: 0; visibility: hidden; position: fixed; inset: 0; align-items: center; justify-content: center; z-index: 2000; transition: opacity 220ms ease, visibility 220ms ease; }
