@@ -4,7 +4,7 @@
     max-height: 20vh;
     background-position-y: center;
     min-height: 96px; /* sensible minimum on very short viewports */
-    background: url('../img/subpage/design2.PNG') center center / cover no-repeat;
+    background: url('../img/subpage/design2.png') center center / cover no-repeat;
     background-attachment: scroll; /* avoid weird parallax on small screens */
     display: block;
     overflow: hidden;
@@ -13,7 +13,7 @@
 }
 
 .capstone {
-    padding-top: 6em;
+    padding-top: 2em;
     padding-bottom: 3em;
     z-index: 5;
     font-family: 'Oxygen';  
