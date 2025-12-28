@@ -1,26 +1,23 @@
 # QHERC Homepage
 
 ## Content Updates
-### Partners and Sponsors
-Create tier list
-* Platimum - MDA, Kinectrics
-* Gold - OnShape
-
-List placements
-* Internships landed by members
-* Add link to sponsorship package
 
 ## Mission Subpages
 ### Outreach
 * Photos and locations of external workshops
 
-### Design Teams
-* Competition - add 3d print from past year
-* Wheel capstone
-* RC Capstone - add 3d of cad
+### Compete
+* Photo reel from 2025 competition
 
-### News Updates
-* DJ & Brandon September soft launch
+### Sponsors
+Create tier list
+* Platimum - MDA, Kinectrics
+* Gold - OnShape
+
+Link to sponsorship package
+<br>List placements
+* Internships landed by members
+* Add link to sponsorship package
 
 ## UI Toggles
 * Make logo for QHERC

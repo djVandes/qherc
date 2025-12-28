@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DESIGN</title>
+    <title>OUTREACH</title>
     <link rel="shortcut icon" type="image/png" href="../img/moon.png"/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/design.css">
+    <link rel="stylesheet" href="../css/sponsor.css">
 </head>
 <body>
     <header>
@@ -29,42 +29,18 @@
         </nav>
     </header>
 
-    <div class="page-banner" role="img" aria-label="Design banner"></div>
-
-    <section class="capstone">  
-        <h1 class="capstone-h1">2025-26 Capstones</h1>
-        <p class="capstone-p">QHERC is supervising 2 final-year culmative projects at Queen's University in Mechanical Engineering in both the Human Powered and Remote Controlled subteams.</p>
-        
-        <div class="capstone-grid" style="position:relative;">
-            <div class="starry-night" aria-hidden="true">
+    <section class="hero" id="home">
+        <div class="hero__background">
+            <div class="starry-night">
                 <div class="stars"></div>
                 <div class="twinkling"></div>
             </div>
+        </div>
+        <div class="hero__content">
+            <h2>OUTREACH</h2>
+            <div class="hero__header"><strong>OUTREACH MISSION</strong></div>
+            <p>Interested in contributing? Check out our <a href="../img/spons.pdf" target="_blank" rel="noopener noreferrer" class="sponsorship-link">Sponsorship Package</a>!</p>
 
-            <div class="capstone-item" style="z-index:2;">
-                <model-viewer
-                src="../img/subpage/rc_car.glb"
-                alt="RC car model"
-                auto-rotate
-                camera-controls
-                shadow-intensity="1"
-                style="width: 100%; height: 300px;">
-                </model-viewer>
-                <h2>REMOTE CONTROL CAPSTONE</h2>
-                <p>With deployable mini-rovers EENIE and MEENIE, the RC car MOE will navigate obstacles, collect samples, and conduct testing in the 2026 NASA Competition.</p>
-            </div>
-            <div class="capstone-item" style="z-index:2;">
-                <model-viewer
-                src="../img/subpage/wheel.glb"
-                alt="Wheel model"
-                auto-rotate
-                camera-controls
-                shadow-intensity="1"
-                style="width: 100%; height: 300px;">
-                </model-viewer>
-                <h2>NONPNEUMATIC WHEEL CAPSTONE</h2>
-                <p>Entirely 3D Printed using carbon-fibre-infused PLA and TPU, this wheel was used in the 2025 NASA Competition on the Human Powered rover.</p>
-            </div>
         </div>
     </section>
 
@@ -103,7 +79,5 @@
         </div>
     </footer>
 
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <script src="../js/index.js"></script>
 </body>
-</html>
+</html>"
