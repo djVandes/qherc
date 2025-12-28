@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPETE</title>
+    <link rel="shortcut icon" type="image/png" href="../img/moon.png"/>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/compete.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <ul class="header-menu">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#mission">Mission</a></li>
+                <li><a href="../index.html#team">Team</a></li>
+                <li><a href="../index.html#news">News</a></li>
+                <li><a href="sponsor.html">Sponsors</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="https://discord.gg/NtXCsjFm">Join</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class = "competition">
+            <h1>2025 Nasa Competition</h1>
+            <p>Gallery highlights from the 2025 NASA Human Exploration Rover Challenge.</p>
+                
+            <div class="compete-gallery" aria-live="polite">
+                <div class="starry-night" aria-hidden="true">
+                    <div class="stars"></div>
+                    <div class="twinkling"></div>
+                </div>
+
+                <div class="pic" data-caption="The team arrives at NASA HQ">
+                    <img src="../img/subpage/compete/1.jpg">
+                </div>
+                <div class="pic" data-caption="The collapsible chassis fits HERC constraints">
+                    <img src="../img/subpage/compete/2.jpg">
+                </div>
+                <div class="pic" data-caption="Carrying to competition area">
+                    <img src="../img/subpage/compete/3.jpg">
+                </div>
+                <div class="pic" data-caption="Drivers have been selected, Bronwyn Faulkner and Dani Zhao">
+                    <img src="../img/subpage/compete/4.jpg">
+                </div>
+                <div class="pic" data-caption="In motion on the course">
+                    <img src="../img/subpage/compete/5.jpg">
+                </div>
+                <div class="pic" data-caption="Space Camp, Alabama">
+                    <img src="../img/subpage/compete/6.jpg">
+                </div>
+                <div class="pic" data-caption="Reinforcing the wheels before the competition">
+                    <img src="../img/subpage/compete/7.jpg">
+                </div>
+                <div class="pic" data-caption="Post Comp">
+                    <img src="../img/subpage/compete/8.jpg">
+                </div>
+                <div class="pic" data-caption="Brandon Lewis accepts the Pit Crew Award">
+                    <img src="../img/subpage/compete/9.jpg">
+                </div>
+                <div class="pic" data-caption="Touring NASA">
+                    <img src="../img/subpage/compete/10.jpg">
+                </div>
+                <div class="pic" data-caption="Constructing the chassis and integrating suspension">
+                    <img src="../img/subpage/compete/11.jpg">
+                </div>
+                <div class="pic" data-caption="Canadians and allies on competition day">
+                    <img src="../img/subpage/compete/12.jpeg">
+                </div>
+            </div>
+
+            <!-- Lightbox / modal -->
+            <div class="lightbox" id="lightbox" aria-hidden="true">
+                <div class="lightbox-backdrop" id="lightbox-backdrop" tabindex="-1"></div>
+                <div class="lightbox-content" role="dialog" aria-modal="true">
+                    <button class="lightbox-close" id="lightbox-close" aria-label="Close">×</button>
+                    <div class="lightbox-imgwrap">
+                        <img id="lightbox-img" src="" alt="">
+                    </div>
+                    <p class="lightbox-caption" id="lightbox-caption"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+        <section class="sponsors-logos" id="sponsors">
+            <p>The team would like to thank our sponsors, who make this project possible.</p>
+            <div class="logo-slider">
+                <img src="../img/logo/hangingstone.png" alt="Sponsor 1">
+                <img src="../img/logo/ipg.png" alt="Sponsor 2">
+                <img src="../img/logo/kinectrics.png" alt="Sponsor 3">
+                <img src="../img/logo/lightweld.webp" alt="Sponsor 4">
+                <img src="../img/logo/mda.png" alt="Sponsor 5">
+                <img src="../img/logo/hangingstone.png" alt="Sponsor 1">
+                <img src="../img/logo/ipg.png" alt="Sponsor 2">
+                <img src="../img/logo/kinectrics.png" alt="Sponsor 3">
+                <img src="../img/logo/lightweld.webp" alt="Sponsor 4">
+                <img src="../img/logo/mda.png" alt="Sponsor 5">
+            </div>
+        </section>
+
+    <footer class="footer">
+        <div class="footer-cta">
+            <p class="footer-cta__text">Looking to connect?</p>
+            <a href="contact.html" class="button footer-cta__button">Contact Us</a>
+        </div>
+        <p>&copy; 2025 by Queen's Human Exploration Rover Competition Team</p>
+        <div class="footer__social">
+            <a href="mailto:d.zhao@queensu.ca" class="footer__link">
+                <i class="fa fa-envelope"></i>
+            </a>
+            <a href="https://instagram.com/queens_herc" class="footer__link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/queen-s-university-herc-design-team" class="footer__link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        (function(){
+            const cards = Array.from(document.querySelectorAll('.compete-card'));
+            const lightbox = document.getElementById('lightbox');
+            const backdrop = document.getElementById('lightbox-backdrop');
+            const closeBtn = document.getElementById('lightbox-close');
+            const lbImg = document.getElementById('lightbox-img');
+            const lbCaption = document.getElementById('lightbox-caption');
+            let lastActive = null;
+
+            let scale = 1, translate = {x:0,y:0}, dragging=false, start={x:0,y:0};
+
+            function open(src, caption, trigger){
+                lastActive = trigger || document.activeElement;
+                // start with image hidden for fade-in
+                lbImg.style.opacity = 0;
+                backdrop.style.opacity = 0;
+
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden','false');
+
+                lbCaption.textContent = '';
+
+                // wait a tick to ensure transitions can run
+                requestAnimationFrame(()=>{
+                    // set src and wait for load to fade in
+                    lbImg.addEventListener('load', function onLoad(){
+                        lbImg.removeEventListener('load', onLoad);
+                        scale = 1; translate = {x:0,y:0};
+                        lbImg.style.transform = 'translate(0px,0px) scale(1)';
+                        // fade in backdrop and image
+                        requestAnimationFrame(()=>{ lbImg.style.opacity = 1; backdrop.style.opacity = 1; });
+                        lbCaption.textContent = caption || '';
+                        closeBtn.focus();
+                    });
+                    lbImg.src = src;
+                    lbImg.alt = caption || '';
+                });
+
+                document.body.style.overflow = 'hidden';
+            }
+
+            function close(){
+                // fade out image and backdrop first
+                lbImg.style.opacity = 0;
+                backdrop.style.opacity = 0;
+
+                // wait for image opacity transition to finish
+                const onTransition = (e)=>{
+                    if(e.propertyName !== 'opacity') return;
+                    lbImg.removeEventListener('transitionend', onTransition);
+                    lightbox.classList.remove('open');
+                    lightbox.setAttribute('aria-hidden','true');
+                    lbImg.src = '';
+                    lbCaption.textContent = '';
+                    document.body.style.overflow = '';
+                    if(lastActive) lastActive.focus();
+                };
+                lbImg.addEventListener('transitionend', onTransition);
+            }
+
+            cards.forEach(card => {
+                const img = card.querySelector('img');
+                const caption = card.dataset.caption || img.alt || '';
+                card.setAttribute('tabindex','0');
+                card.addEventListener('click', (e)=> open(img.src, caption, e.currentTarget));
+                card.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); open(img.src, caption, e.currentTarget); } });
+            });
+
+            backdrop.addEventListener('click', close);
+            closeBtn.addEventListener('click', close);
+            document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') close(); });
+
+            // wheel zoom
+            lightbox.addEventListener('wheel', (e)=>{
+                if(!lightbox.classList.contains('open')) return;
+                e.preventDefault();
+                const delta = -e.deltaY * 0.0015;
+                scale = Math.min(3, Math.max(0.5, scale + delta));
+                lbImg.style.transform = `translate(${translate.x}px, ${translate.y}px) scale(${scale})`;
+                lbImg.style.cursor = scale>1 ? 'grab' : 'zoom-in';
+            }, {passive:false});
+
+            // pointer drag for panning
+            lbImg.addEventListener('pointerdown', (e)=>{
+                if(scale<=1) return;
+                dragging = true; start = {x: e.clientX - translate.x, y: e.clientY - translate.y};
+                lbImg.setPointerCapture(e.pointerId);
+                lightbox.querySelector('.lightbox-imgwrap').classList.add('dragging');
+            });
+            lbImg.addEventListener('pointermove', (e)=>{
+                if(!dragging) return;
+                translate = {x: e.clientX - start.x, y: e.clientY - start.y};
+                lbImg.style.transform = `translate(${translate.x}px, ${translate.y}px) scale(${scale})`;
+            });
+            lbImg.addEventListener('pointerup', (e)=>{
+                dragging = false;
+                try{ lbImg.releasePointerCapture(e.pointerId); }catch(_){}
+                lightbox.querySelector('.lightbox-imgwrap').classList.remove('dragging');
+            });
+            lbImg.addEventListener('dblclick', ()=>{
+                if(scale>1){ scale = 1; translate = {x:0,y:0}; }
+                else { scale = 2; }
+                lbImg.style.transform = `translate(${translate.x}px, ${translate.y}px) scale(${scale})`;
+            });
+        })();
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+.competition {
+    padding-top: 2em;
+    padding-bottom: 3em;
+    z-index: 5;
+    font-family: 'Oxygen';      
+}
+
+.competition h1 {
+    animation: fadeInUp 1s ease-out forwards;
+    z-index: 20;
+    position: relative;
+    text-align: center;
+    margin-bottom: 1em;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    z-index: 10;
+    font-size: 3em; /* Enlarge the h1 text size */
+    text-align: center;
+}
+.competition p {
+    animation: fadeInUp 1s ease-out forwards;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    z-index: 10;
+    font-size: 1em;
+    text-align: center;
+    color: var(--baby);
+    position: relative;
+}
+
+/* Gallery grid */
+.compete-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    padding: 1rem;
+    position: relative;
+    gap: 1rem;
+    align-items: start;
+}
+.pic {
+    overflow: hidden;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    display: flex;
+    flex-direction: column;
+    z-index: 5;
+}
+.pic img {
+    width: 400px;
+    height: 400px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+.pic .caption {
+    padding: 0.6rem 0.9rem;
+    color: var(--cream);
+    font-size: 0.95rem;
+}
+
+/* Responsive tweaks */
+@media (max-width: 700px) {
+    .pic img { height: 160px; }
+    .compete-title { font-size: 1.6rem; }
+}
+
+/* Hide inline captions on thumbnails (we show them in the lightbox) */
+.pic .caption { display: none; }
+
+/* Ensure gallery sits above starry-night overlays and is clearly legible */
+.compete-gallery { position: relative; z-index: 12; }
+.pic { position: relative; z-index: 13; background: rgba(0,0,0,0.9); }
+
+/* Lightbox / overlay styles */
+.lightbox { display: flex; opacity: 0; visibility: hidden; position: fixed; inset: 0; align-items: center; justify-content: center; z-index: 2000; transition: opacity 220ms ease, visibility 220ms ease; }
+.lightbox.open { opacity: 1; visibility: visible; }
+.lightbox-backdrop { position: absolute; inset:0; background: rgba(0,0,0,0.7); opacity: 0; transition: opacity 220ms ease; }
+.lightbox.open .lightbox-backdrop { opacity: 1; }
+.lightbox-content { position: relative; z-index: 2010; max-width: 92%; width: 1100px; margin: 1rem; display:flex; flex-direction:column; align-items:center; }
+.lightbox-close { position: absolute; right: -6px; top: -6px; background:#fff; color:#000; border-radius:50%; border:none; width:38px; height:38px; font-size:22px; cursor:pointer; z-index:2020; box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+.lightbox-imgwrap { max-height: 80vh; width:100%; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+.lightbox-imgwrap img { max-width: 100%; max-height: 80vh; transform-origin: center center; transition: transform 160ms ease, opacity 220ms ease; opacity: 0; }
+.lightbox.open .lightbox-imgwrap img { opacity: 1; }
+.lightbox-caption { margin-top: 0.6rem; color: var(--cream); font-size: 1rem; text-align:center; }
+
+/* Touch and drag states */
+
+/* Small adjustment so the footer sponsor area doesn't crowd the gallery */
+.sponsors-logos { margin-top: 0; padding-top: 0.75rem; }
